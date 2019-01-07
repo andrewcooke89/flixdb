@@ -4,7 +4,7 @@
     height: 40rem;
     width: 20%;
     transition: all .1s;
-    
+    cursor: pointer;
 }
 
 .TrendingCarouselImg:hover {

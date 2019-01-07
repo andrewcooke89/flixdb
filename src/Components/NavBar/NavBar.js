@@ -31,16 +31,25 @@ const NavBar = () => {
             <SearchBar />
             <div className={classes.NavBar__links}>
                 <NavLink className={classes.NavBar__link} exact to="/">
-                    <span>{HomeIcon}</span>
-                    <span>Home</span>
+                    <div className={classes.NavBar__link_group}>
+                        {HomeIcon}
+                        <span className={classes.NavBar__link_text}>Home</span>
+                    </div>
+                    
                 </NavLink>
                 <NavLink className={classes.NavBar__link} exact to="/">
-                    <span>{DiscoverIcon}</span>
-                    <span>Discover</span>
+                    <div className={classes.NavBar__link_group}>
+                        {DiscoverIcon}
+                        <span className={classes.NavBar__link_text}>Discover</span>
+                    </div>
+                    
                 </NavLink>
                 <NavLink className={classes.NavBar__link} exact to="/">
-                    <span>{AccountIcon}</span>
-                    <span>My Account</span>
+                    <div className={classes.NavBar__link_group}>
+                        {AccountIcon}
+                        <span className={classes.NavBar__link_text}>My Account</span>
+                    </div>
+                    
                 </NavLink>
             </div>
         </div>

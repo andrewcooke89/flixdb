@@ -26,6 +26,7 @@
     grid-column: 14 / -1;
     display: flex;
     align-items: flex-end;
+    justify-content: space-around;
 }
 
 .NavBar__link {
@@ -41,14 +42,32 @@
     align-items: center;
 }
 
+.NavBar__link_group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.NavBar__link_group:hover .NavBar__link_text {
+    display: block;
+}
+
 .NavBar__link:hover,
 .NavBar__link:active {
     color: #4387fd;
     border-bottom: .5rem solid #4387fd;
+    
 }
+
+.NavBar__link_text {
+    display: none;
+}
+
 
 .NavBar__link_icon {
     height: 3rem;
     width: 3rem;
     fill: #4387fd;
+    
 }

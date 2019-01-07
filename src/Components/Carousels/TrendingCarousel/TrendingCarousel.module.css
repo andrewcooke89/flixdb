@@ -17,6 +17,7 @@
     height: 3rem;
     width: 3rem;
     fill: #4387fd;
+    cursor: pointer;
 }
 
 .TrendingCarousel__pag_forward {
@@ -24,6 +25,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 
 .TrendingCarousel__pag_forward_icon {
