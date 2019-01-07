@@ -1,0 +1,41 @@
+.NavBar {
+    grid-area: header-start / 1 / header-end / -1;
+    background: #0f0c29;  
+    background: -webkit-linear-gradient(to right, #040523, #181947, #0f0c29); 
+    background: linear-gradient(to right, #040523, #181947, #0f0c29); 
+
+    padding: .5rem;
+    border-image: linear-gradient(to right, #820310 0%,#820310 25%, #4387fd 71%, #4387fd 100%);
+	border-image-slice: 1;
+    border-bottom: .2rem solid ;
+
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    align-items: center;
+}
+
+.NavBar__logo {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    margin-left: 1rem;
+    grid-column: 1;
+}
+
+.NavBar__links {
+    grid-column: 14 / -1;
+}
+
+.NavBar__link {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #ccc;
+    padding: .3rem;
+    margin-right: .6rem;
+}
+
+.NavBar__link:hover,
+.NavBar__link:active {
+    color: #4387fd;
+    border-bottom: .5rem solid #4387fd;
+}

@@ -1,0 +1,18 @@
+.TrendingCarousel {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    grid-area: trendingCarousel-start / 2 / trendingCarousel-end / 16;
+    display: flex;
+}
+
+.TrendingCarousel__image {
+    border: 2px solid black;
+    height: 40rem;
+    width: 20%;
+    transition: all .1s;
+}
+
+
+
+

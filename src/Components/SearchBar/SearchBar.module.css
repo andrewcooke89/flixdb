@@ -1,0 +1,26 @@
+.SearchBar {
+    padding: 2rem;
+    border-radius: 5rem;
+    color: black;
+    width: 100%;
+    height: 100%;
+    transition: all .1s;
+    
+}
+
+.SearchBar:focus {
+    border: .2rem solid #4387fd;
+    transform: scale(1.1);
+    outline: none;
+}
+
+.SearchBar__searchBox {
+    
+    height: 4rem;
+    grid-column: 7 / 11;
+}
+
+
+
+
+
