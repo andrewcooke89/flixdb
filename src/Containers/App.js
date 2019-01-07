@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../Components/NavBar/NavBar';
 import TypeSelector from '../Components/TypeSelector/TypeSelector';
-import TrendingCarousel from '../Components/Carousels/TrendingCarousel/TrendingCarousel';
+import TrendingCarousel from './Carousels/TrendingCarousel/TrendingCarousel';
 import './App.css';
 
 class App extends Component {
