@@ -1,18 +1,35 @@
 .TrendingCarousel {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
     grid-area: trendingCarousel-start / 2 / trendingCarousel-end / 16;
     display: flex;
 }
 
-.TrendingCarousel__image {
-    border: 2px solid black;
-    height: 40rem;
-    width: 20%;
-    transition: all .1s;
+.TrendingCarousel__pag_back {
+    width: 100%;
+    height: 100%;
+    grid-area: trendingCarousel-start / 1 / trendingCarousel-end / 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
 }
 
+.TrendingCarousel__pag_back_icon {
+    height: 3rem;
+    width: 3rem;
+    fill: #4387fd;
+}
 
+.TrendingCarousel__pag_forward {
+    grid-area: trendingCarousel-start / 16 / trendingCarousel-end / -1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.TrendingCarousel__pag_forward_icon {
+    height: 3rem;
+    width: 3rem;
+    fill: #4387fd;
+}
 
 

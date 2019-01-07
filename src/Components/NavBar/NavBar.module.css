@@ -7,7 +7,7 @@
     padding: .5rem;
     border-image: linear-gradient(to right, #820310 0%,#820310 25%, #4387fd 71%, #4387fd 100%);
 	border-image-slice: 1;
-    border-bottom: .2rem solid ;
+    border-bottom: .5rem solid ;
 
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -24,18 +24,31 @@
 
 .NavBar__links {
     grid-column: 14 / -1;
+    display: flex;
+    align-items: flex-end;
 }
 
 .NavBar__link {
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: #ccc;
     padding: .3rem;
     margin-right: .6rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .NavBar__link:hover,
 .NavBar__link:active {
     color: #4387fd;
     border-bottom: .5rem solid #4387fd;
+}
+
+.NavBar__link_icon {
+    height: 3rem;
+    width: 3rem;
+    fill: #4387fd;
 }

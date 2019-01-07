@@ -1,0 +1,31 @@
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(sprite.svg);
+}
+.icon-controller-jump-to-start {
+  width: 20px;
+  height: 20px;
+  background-position: 0 0;
+}
+.icon-controller-next {
+  width: 20px;
+  height: 20px;
+  background-position: -36px 0;
+}
+.icon-home {
+  width: 20px;
+  height: 20px;
+  background-position: -72px 0;
+}
+.icon-laptop {
+  width: 20px;
+  height: 20px;
+  background-position: -108px 0;
+}
+.icon-video {
+  width: 20px;
+  height: 20px;
+  background-position: -144px 0;
+}
+
