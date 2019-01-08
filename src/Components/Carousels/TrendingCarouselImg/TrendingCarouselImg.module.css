@@ -1,13 +1,21 @@
 .TrendingCarouselImg {
 
     border: 2px solid black;
+    height: 100%;
+    width: 100%;
+    transition: all .1s;
+    cursor: pointer;
+}
+
+.TrendingCarouselImg__Container {
+    border: 2px solid black;
     height: 40rem;
     width: 20%;
     transition: all .1s;
     cursor: pointer;
 }
 
-.TrendingCarouselImg:hover {
+.TrendingCarouselImg__Container:hover {
     transform: scale(1.05);
     border: 1px solid #4387fd;
 }
