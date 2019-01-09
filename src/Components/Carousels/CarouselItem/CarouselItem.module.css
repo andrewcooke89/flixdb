@@ -1,0 +1,21 @@
+.CarouselItem {
+    border: 2px solid black;
+    height: 100%;
+    width: 100%;
+    transition: all .1s;
+    cursor: pointer;
+}
+
+.CarouselItem__Container {
+    border: 2px solid black;
+    height: 20rem;
+    width: 12.8%;
+    transition: all .1s;
+    cursor: pointer;
+    display: flex;
+}
+
+.CarouselItem:hover {
+    transform: scale(1.05);
+    border: 1px solid #4387fd;
+}

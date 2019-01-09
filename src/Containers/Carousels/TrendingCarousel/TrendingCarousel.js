@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchTrendingMovies } from '../../../store/actions/fetchMovies';
 import PagBack from '../../../Components/Carousels/PaginationButtons/PagBack/PagBack';
 import PagForward from '../../../Components/Carousels/PaginationButtons/PagForward/PagForward';
+import CarouselHeading from '../../../Components/Typography/CarouselHeading/CarouselHeading';
 
 class TrendingCarousel extends Component{
 
@@ -66,15 +67,20 @@ class TrendingCarousel extends Component{
             
         }
 
+        // placement styling props for the pagination
         const pagBackStyle = {
             gridArea: "trendingCarousel-start / 1 / trendingCarousel-end / 2"
         }
         const pagForStyle = {
             gridArea: "trendingCarousel-start / 16 / trendingCarousel-end / -1"
         }
+        const headingStyle = {
+            gridArea: "gutter-2 / 2 / trendingCarousel-start / 3"
+        }
 
         return (
             <>
+                <CarouselHeading headingText="TRENDING" headingStyleProp={headingStyle}/>
                 <PagBack clickMethod={pageBack} styleProp={pagBackStyle}/>
                 <div className={classes.TrendingCarousel}>
                     {curTrendingCarouselItems}
