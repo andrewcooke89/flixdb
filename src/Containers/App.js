@@ -46,6 +46,14 @@ class App extends Component {
           }
           this.setState({highestRatedPage:newPage})
           break;
+        case "upcomming":
+          if(curState.upcommingPage === 1){
+            newPage = 2;
+          } else if (curState.upcommingPage === 2){
+              newPage = 1;
+          }
+          this.setState({upcommingPage:newPage})
+          break;
         default: return newPage 
       }
       
@@ -70,6 +78,14 @@ class App extends Component {
             }
             this.setState({highestRatedPage:newPage})
           break;
+          case "upcomming":
+            if(curState.upcommingPage === 1){
+              newPage = 2;
+            } else if (curState.upcommingPage === 2){
+                newPage = 1;
+            }
+            this.setState({upcommingPage:newPage})
+          break;
           default: return newPage 
         }
   }
@@ -92,16 +108,29 @@ class App extends Component {
           headingStyleProp={styles.headingPlacement.InTheatresHeadingStyle} 
           itemList={this.props.inTheatreMovies}
         />
+        {/* highest rated movie carousel */}
         <CarouselTemplate 
           headingText="HIGHEST RATED"
           headingStyleProp={styles.headingPlacement.highestRatedHeadingStyle}
           pagBackStyleProp={styles.paginationPlacement.highestRatedPagBack}
           pagForwardStyleProp={styles.paginationPlacement.highestRatedPagForward}
           CarouselStyle={styles.carouselPlacement.highestRatedCarouselStyle}
-          itemList={this.props.highestRatedMovies} //testing - change
+          itemList={this.props.highestRatedMovies} 
           page={this.state.highestRatedPage}
           pagForwardClickMethod={() => PageForward("highestRated")}
           pagBackClickMethod={() => PageBack("highestRated")}
+        />
+        {/* upcomming carousel */}
+        <CarouselTemplate 
+          headingText="UPCOMMING"
+          headingStyleProp={styles.headingPlacement.upcommingHeadingStyle}
+          pagBackStyleProp={styles.paginationPlacement.upcommingPagBack}
+          pagForwardStyleProp={styles.paginationPlacement.upcommingPagForward}
+          CarouselStyle={styles.carouselPlacement.upcommingCarouselStyle}
+          itemList={this.props.upcommingMovies} 
+          page={this.state.upcommingPage}
+          pagForwardClickMethod={() => PageForward("upcomming")}
+          pagBackClickMethod={() => PageBack("upcomming")}
         />
       </div>
     );

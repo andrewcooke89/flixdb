@@ -12,11 +12,9 @@
                         [theatres-start] min-content 
                         [theatres-end gutter-4] 7rem
                         [highestRated-start] min-content
-                        [hightestRated-end gutter-5] 7rem
+                        [highestRated-end gutter-5] 7rem
                         [upcomming-start] min-content
                         [upcomming-end gutter-6] 7rem
-                        
-                        
                          ;
 
     grid-column-gap: 1rem;

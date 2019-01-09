@@ -5,6 +5,9 @@ const styles = {
           },
         highestRatedCarouselStyle: {
             gridArea: "highestRated-start / 2 / highestRated-end / 16"
+        },
+        upcommingCarouselStyle: {
+            gridArea: "upcomming-start / 2 / upcomming-end / 16"
         }        
     },
     headingPlacement: {
@@ -13,6 +16,9 @@ const styles = {
           },
           highestRatedHeadingStyle: {
             gridArea: "theatres-end / 2 / highestRated-start / 5"
+          },
+          upcommingHeadingStyle: {
+              gridArea: "highestRated-end / 2 / upcomming-start / 5"
           }
     },
     paginationPlacement: {
@@ -27,6 +33,12 @@ const styles = {
         },
         highestRatedPagBack: {
             gridArea: "highestRated-start / 1 / highestRated-end / 2"
+        },
+        upcommingPagBack: {
+            gridArea: "upcomming-start / 1 / upcomming-end / 2"
+        },
+        upcommingPagForward: {
+            gridArea: "upcomming-start / 16 / upcomming-end / -1"
         }
     }
 }
