@@ -5,50 +5,26 @@ import TypeSelector from '../Components/TypeSelector/TypeSelector';
 import TrendingCarousel from './Carousels/TrendingCarousel/TrendingCarousel';
 import './App.css';
 import CarouselTemplate from '../Components/Carousels/CarouselTemplate/CarouselTemplate';
-import { fetchTheatreMovies } from '../store/actions/fetchMovies';
+import { fetchTheatreMovies, fetchHighestRatedMovies, fetchUpcommingMovies } from '../store/actions/fetchMovies';
+// inline styles for carousel, pagination and heading placements
+import styles from '../assets/inlineStyles';
 
 class App extends Component {
 
   state = {
     theatrePage: 1,
-    highestRatedPage: 1
+    highestRatedPage: 1,
+    upcommingPage: 1,
   }
 
   componentDidMount () {
     this.props.onFetchTheatreMovies()
+    this.props.onFetchHighestRatedMovies()
+    this.props.onFetchUpcommingMovies()
   }
 
   render() {
 
-    // styles
-    // placement for in theatres carousel
-    const InTheatresHeadingStyle = {
-      gridArea: "trendingCarousel-end / 2 / theatres-start / 5"
-    }
-    const InTheatresCarouselStyle = {
-      gridArea: "theatres-start / 2 / theatres-end / 16"
-    }
-    // pagination placement for in theatres carousel
-    const theatrePagBack = {
-      gridArea: "theatres-start / 1 / theatres-end / 2"
-    }
-    const theatrePagForward = {
-      gridArea: "theatres-start / 16 / theatres-end / -1"
-    }
-    // placement for highest rated carousel
-    const highestRatedHeadingStyle = {
-      gridArea: "theatres-end / 2 / highestRated-start / 5"
-    }
-    const highestRatedCarouselStyle = {
-      gridArea: "highestRated-start / 2 / highestRated-end / 16"
-    }
-    // pagination placement for highest rated carousel
-    const highestRatedPagForward = {
-      gridArea: "highestRated-start / 16 / highestRated-end / -1"
-    }
-    const highestRatedPagBack = {
-      gridArea: "highestRated-start / 1 / highestRated-end / 2"
-    }
     //page change click methods
     const PageForward = (carouselType) => {
       const curState = {...this.state};
@@ -96,8 +72,6 @@ class App extends Component {
           break;
           default: return newPage 
         }
-          
-        
   }
 
     return (
@@ -110,21 +84,21 @@ class App extends Component {
         <CarouselTemplate 
           pagForwardClickMethod={() => PageForward("theatre")}
           pagBackClickMethod={() => PageBack("theatre")}
-          pagBackStyleProp={theatrePagBack} 
-          pagForwardStyleProp={theatrePagForward} 
+          pagBackStyleProp={styles.paginationPlacement.theatrePagBack} 
+          pagForwardStyleProp={styles.paginationPlacement.theatrePagForward} 
           page={this.state.theatrePage} 
-          CarouselStyle={InTheatresCarouselStyle} 
+          CarouselStyle={styles.carouselPlacement.InTheatresCarouselStyle} 
           headingText="IN THEATRES"
-          headingStyleProp={InTheatresHeadingStyle} 
+          headingStyleProp={styles.headingPlacement.InTheatresHeadingStyle} 
           itemList={this.props.inTheatreMovies}
         />
         <CarouselTemplate 
           headingText="HIGHEST RATED"
-          headingStyleProp={highestRatedHeadingStyle}
-          pagBackStyleProp={highestRatedPagBack}
-          pagForwardStyleProp={highestRatedPagForward}
-          CarouselStyle={highestRatedCarouselStyle}
-          itemList={this.props.inTheatreMovies} //testing - change
+          headingStyleProp={styles.headingPlacement.highestRatedHeadingStyle}
+          pagBackStyleProp={styles.paginationPlacement.highestRatedPagBack}
+          pagForwardStyleProp={styles.paginationPlacement.highestRatedPagForward}
+          CarouselStyle={styles.carouselPlacement.highestRatedCarouselStyle}
+          itemList={this.props.highestRatedMovies} //testing - change
           page={this.state.highestRatedPage}
           pagForwardClickMethod={() => PageForward("highestRated")}
           pagBackClickMethod={() => PageBack("highestRated")}
@@ -136,13 +110,17 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-      inTheatreMovies: state.theatreResults
+      inTheatreMovies: state.theatreResults,
+      highestRatedMovies: state.highestRatedResults,
+      upcommingMovies: state.upcommingResults
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-      onFetchTheatreMovies: () => dispatch(fetchTheatreMovies())
+      onFetchTheatreMovies: () => dispatch(fetchTheatreMovies()),
+      onFetchHighestRatedMovies: () => dispatch(fetchHighestRatedMovies()),
+      onFetchUpcommingMovies: () => dispatch(fetchUpcommingMovies())
   }  
 }
 

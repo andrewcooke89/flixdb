@@ -3,6 +3,8 @@ import * as actionTypes from '../../actions/actionTypes';
 const initialState = {
     trendingResults: [],
     theatreResults: [],
+    highestRatedResults: [],
+    upcommingResults: [],
     isPending: false,
     error: null
 }
@@ -38,6 +40,40 @@ const MoviesReducer = (state = initialState, action) => {
                 theatreResults: action.payload
             }
         case actionTypes.FETCH_THEATRE_MOVIE_FAIL:
+            return {
+                ...state,
+                isPending: false,
+                error: action.payload
+            }
+        case actionTypes.FETCH_HIGHESTRATED_MOVIE_START:
+            return {
+                ...state,
+                isPending: true,
+            }
+        case actionTypes.FETCH_HIGHESTRATED_MOVIE_SUCCESS:
+            return {
+                ...state,
+                isPending: false,
+                highestRatedResults: action.payload
+            }
+        case actionTypes.FETCH_HIGHESTRATED_MOVIE_FAIL:
+            return {
+                ...state,
+                isPending: false,
+                error: action.payload
+            }
+        case actionTypes.FETCH_UPCOMMING_MOVIE_START:
+            return {
+                ...state,
+                isPending: true,
+            }
+        case actionTypes.FETCH_UPCOMMING_MOVIE_SUCCESS:
+            return {
+                ...state,
+                isPending: false,
+                upcommingResults: action.payload
+            }
+        case actionTypes.FETCH_UPCOMMING_MOVIE_FAIL:
             return {
                 ...state,
                 isPending: false,

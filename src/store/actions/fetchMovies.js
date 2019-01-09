@@ -25,7 +25,7 @@ export const fetchTheatreMovies = () => (dispatch) => {
     )
 }
 
-export const fetchhighestRatedMovies = () => (dispatch) => {
+export const fetchHighestRatedMovies = () => (dispatch) => {
     dispatch({ type: actionTypes.FETCH_HIGHESTRATED_MOVIE_START });
     fetch(`
     https://api.themoviedb.org/3/movie/top_rated?${apiKey}&language=en-US&page=1`)
@@ -35,5 +35,18 @@ export const fetchhighestRatedMovies = () => (dispatch) => {
     )
     .catch(err => 
         dispatch({ type: actionTypes.FETCH_HIGHESTRATED_MOVIE_FAIL, payload: err })
+    )
+}
+
+export const fetchUpcommingMovies = () => (dispatch) => {
+    dispatch({ type: actionTypes.FETCH_UPCOMMING_MOVIE_START });
+    fetch(`
+    https://api.themoviedb.org/3/movie/upcoming?${apiKey}&language=en-US&page=1`)
+    .then(response => response.json())
+    .then(data =>
+        dispatch({ type: actionTypes.FETCH_UPCOMMING_MOVIE_SUCCESS, payload: data.results })
+    )
+    .catch(err => 
+        dispatch({ type: actionTypes.FETCH_UPCOMMING_MOVIE_FAIL, payload: err })
     )
 }
