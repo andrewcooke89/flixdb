@@ -1,0 +1,83 @@
+.footer {
+    grid-area: footer-start / 1 / footer-end / -1;
+
+    background-color: black;
+    border-image: linear-gradient(to right, #820310 0%,#820310 25%, #4387fd 71%, #4387fd 100%);
+	border-image-slice: 1;
+    border-top: .5rem solid ;
+
+    
+
+    display: grid;
+    grid-template-rows: [header-start] 5rem
+                        [h1-start] 5rem
+                        [gutter-1] 10rem
+                        [body-start] 10rem
+                        [body-end] 5rem
+                        [copy-start] 5rem;
+                       
+
+    grid-template-columns: repeat(10, 1fr);
+
+
+}
+
+.footer__h1{
+    font-size: 3rem;
+    color: #820310;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.footer__h2 {
+    font-size: 2rem;
+    color: white;
+    grid-area: 2 / 6 / 3 / 10;
+}
+
+/* .footer__body {
+    grid-area: body-start / link-start / body-end / logo-end;
+    display: flex;
+    justify-content: space-between;
+} */
+
+.footer__nav {
+    grid-area: 3 / 2 / 5 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;   
+}
+
+.footer__link {
+    display: flex;
+    align-items: center;
+    color:white;
+    font-size: 1.6rem;
+}
+
+
+.footer__link_icon {
+    height: 2rem;
+    width: 2rem;
+    fill: #4387fd;
+    margin-right: 1.5rem;
+}
+
+.footer__movieCredit {
+    grid-area: 3 / 7 / 5 / 10;
+}
+.footer__movieCredit_logo {
+    height: 5.4rem;
+    width: 16rem;
+}
+
+.footer__movieCredit_text {
+    color: white;
+    font-size: 1.6rem;
+}
+
+.footer__copyright {
+    color: white;
+    font-size: 1.6rem;
+    grid-area: 5 / 4 / 6/ 8;
+    text-align: center;
+}

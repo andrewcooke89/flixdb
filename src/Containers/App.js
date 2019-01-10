@@ -5,7 +5,10 @@ import TypeSelector from '../Components/TypeSelector/TypeSelector';
 import TrendingCarousel from './Carousels/TrendingCarousel/TrendingCarousel';
 import './App.css';
 import CarouselTemplate from '../Components/Carousels/CarouselTemplate/CarouselTemplate';
+import Footer from '../.../../Components/Footer/Footer';
+
 import { fetchTheatreMovies, fetchHighestRatedMovies, fetchUpcommingMovies, fetchPopulargMovies } from '../store/actions/fetchMovies';
+
 // inline styles for carousel, pagination and heading placements
 import styles from '../assets/inlineStyles';
 
@@ -162,6 +165,7 @@ class App extends Component {
           pagForwardClickMethod={() => PageForward("popular")}
           pagBackClickMethod={() => PageBack("popular")}
         />
+        <Footer />
       </div>
     );
   }

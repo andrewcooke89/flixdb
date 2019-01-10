@@ -24,12 +24,12 @@ const NavBar = () => {
 
 
     return (
-        <div className={classes.NavBar}>
+        <header className={classes.NavBar}>
             <div >
                 <img className={classes.NavBar__logo} src={logo} alt="Logo"/>
             </div>
             <SearchBar />
-            <div className={classes.NavBar__links}>
+            <nav className={classes.NavBar__links}>
                 <NavLink className={classes.NavBar__link} exact to="/">
                     <div className={classes.NavBar__link_group}>
                         {HomeIcon}
@@ -51,8 +51,8 @@ const NavBar = () => {
                     </div>
                     
                 </NavLink>
-            </div>
-        </div>
+            </nav>
+        </header>
     );
 }
 

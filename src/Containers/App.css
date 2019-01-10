@@ -16,7 +16,9 @@
                         [upcomming-start] min-content
                         [upcomming-end gutter-6] 7rem
                         [popular-start] min-content
-                        [popular-end gutter-7] 7rem
+                        [popular-end gutter-7] 14rem
+                        [footer-start] min-content
+                        [footer-end] min-content
                          ;
 
     grid-column-gap: 1rem;
