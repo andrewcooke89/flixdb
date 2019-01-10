@@ -22,16 +22,19 @@
 
 }
 
+
+
 .footer__h1{
     font-size: 3rem;
     color: #820310;
     grid-area: 2 / 2 / 3 / 3;
+    border-bottom: 1px solid #4387fd;
 }
 
 .footer__h2 {
-    font-size: 2rem;
-    color: white;
-    grid-area: 2 / 6 / 3 / 10;
+    font-size: 2.5rem;
+    color: #4387fd;
+    grid-area: 2 / 4 / 3 / 10;
 }
 
 /* .footer__body {
@@ -50,8 +53,13 @@
 .footer__link {
     display: flex;
     align-items: center;
-    color:white;
+    color:#ccc;
     font-size: 1.6rem;
+    text-decoration: none;
+}
+
+.footer__link:hover {
+    color: #4387fd;
 }
 
 
@@ -63,7 +71,9 @@
 }
 
 .footer__movieCredit {
-    grid-area: 3 / 7 / 5 / 10;
+    grid-area: 3 / 8 / 4 / 10;
+    height: 7.82rem;
+    width: 25rem;
 }
 .footer__movieCredit_logo {
     height: 5.4rem;
@@ -71,6 +81,7 @@
 }
 
 .footer__movieCredit_text {
+    /* grid-area:  */
     color: white;
     font-size: 1.6rem;
 }
@@ -80,4 +91,5 @@
     font-size: 1.6rem;
     grid-area: 5 / 4 / 6/ 8;
     text-align: center;
+    font-style: italic;
 }

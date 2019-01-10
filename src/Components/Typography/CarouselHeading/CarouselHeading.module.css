@@ -1,10 +1,10 @@
 .CarouselHeading {
     font-size: 2.8rem;
     color: #4387fd;
-
 }
 
 .CarouselHeading__Container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    margin-bottom: 1rem;
 }

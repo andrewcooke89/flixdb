@@ -21,8 +21,11 @@ const Footer = () => {
 
     return (
         <footer className={classes.footer}>
-            <h1 className={classes.footer__h1}>FlixDB</h1>
-            <h2 className={classes.footer__h2}>KEEP TRACK OF YOUR ENTERTAINEMENT</h2>
+            
+                <h1 className={classes.footer__h1}>FlixDB</h1>
+                <h2 className={classes.footer__h2}>KEEP TRACK OF YOUR ENTERTAINEMENT</h2>
+            
+            
            
             <div className={classes.footer__nav}>
                 <div className={classes.footer__link_item}> 
@@ -49,9 +52,9 @@ const Footer = () => {
                     <img src={movieDbLogo} alt="Movie Database logo" />
                 </a>
 
-                {/* <div className={classes.footer__movieCredit_text}>
+                <div className={classes.footer__movieCredit_text}>
                     <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-                </div> */}
+                </div>
             </div> 
 
                 <p className={classes.footer__copyright}>&copy; Copyright 2018 Design and Cody by Andrew Cooke using the Movie DB API </p>

@@ -1,5 +1,6 @@
 .NavBar {
-    grid-area: header-start / 1 / header-end / -1;
+    /* grid-area: header-start / 1 / header-end / -1; */
+
     background: #0f0c29;  
     background: -webkit-linear-gradient(to right, #040523, #181947, #0f0c29); 
     background: linear-gradient(to right, #040523, #181947, #0f0c29); 
@@ -12,6 +13,12 @@
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     align-items: center;
+    
+    /* sticky nav bar */
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    z-index: 100;
 }
 
 .NavBar__logo {
