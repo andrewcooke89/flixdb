@@ -93,7 +93,7 @@ class TrendingCarousel extends Component{
 
 const mapStateToProps = state => {
     return {
-        trendingMovies: state.trendingResults
+        trendingMovies: state.movies.trendingResults
     }
 }
 

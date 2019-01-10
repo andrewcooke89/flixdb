@@ -173,10 +173,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-      inTheatreMovies: state.theatreResults,
-      highestRatedMovies: state.highestRatedResults,
-      upcommingMovies: state.upcommingResults,
-      popularMovies: state.popularResults
+      inTheatreMovies: state.movies.theatreResults,
+      highestRatedMovies: state.movies.highestRatedResults,
+      upcommingMovies: state.movies.upcommingResults,
+      popularMovies: state.movies.popularResults
   }
 }
 

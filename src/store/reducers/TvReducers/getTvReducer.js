@@ -101,3 +101,5 @@ const TvReducer = (state = initialState, action) => {
             return state
     }
 }
+
+export default TvReducer;
