@@ -3,6 +3,7 @@ import classes from './TrendingCarousel.module.css';
 import TrendingCarouselImg from '../../../Components/Carousels/TrendingCarouselImg/TrendingCarouselImg';
 import { connect } from 'react-redux';
 import { fetchTrendingMovies } from '../../../store/actions/fetchMovies';
+import { fetchTrendingTv } from '../../../store/actions/fetchTv';
 import PagBack from '../../../Components/Carousels/PaginationButtons/PagBack/PagBack';
 import PagForward from '../../../Components/Carousels/PaginationButtons/PagForward/PagForward';
 import CarouselHeading from '../../../Components/Typography/CarouselHeading/CarouselHeading';
@@ -14,21 +15,30 @@ class TrendingCarousel extends Component{
     }
 
     componentDidMount () {
-        // fetch the trending movies data
+        // fetch the trending movies data 
         this.props.onFetchTrendingMovies();
     }
 
     render() {
+
+        // changes data list based on selection type
+        let currentTrendingTypeData;
+        if (this.props.selectorType === "movies"){
+            currentTrendingTypeData = [...this.props.trendingMovies];
+        } else {
+            currentTrendingTypeData = [...this.props.trendingTv];
+        }
+
         // selecting the current 5 film posters based on current page
         let curTrendingPage;
         if(this.state.curPage === 1){
-            curTrendingPage = [...this.props.trendingMovies].slice(0, 5)
+            curTrendingPage = [...currentTrendingTypeData].slice(0, 5)
         } else if(this.state.curPage === 2) {
-            curTrendingPage = [...this.props.trendingMovies].slice(5, 10)
+            curTrendingPage = [...currentTrendingTypeData].slice(5, 10)
         } else if(this.state.curPage === 3) {
-            curTrendingPage = [...this.props.trendingMovies].slice(10, 15)
+            curTrendingPage = [...currentTrendingTypeData].slice(10, 15)
         } else if(this.state.curPage === 4) {
-            curTrendingPage = [...this.props.trendingMovies].slice(15, 20)
+            curTrendingPage = [...currentTrendingTypeData].slice(15, 20)
         } 
 
         // iterating over the trendingmovies array to render carousel
@@ -93,13 +103,16 @@ class TrendingCarousel extends Component{
 
 const mapStateToProps = state => {
     return {
-        trendingMovies: state.movies.trendingResults
+        trendingMovies: state.movies.trendingResults,
+        trendingTv: state.tv.trendingResults,
+        selectorType: state.typeSelector.entertainmentType
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchTrendingMovies: () => dispatch(fetchTrendingMovies())
+        onFetchTrendingMovies: () => dispatch(fetchTrendingMovies()),
+        onFetchTrendingTv: () => dispatch(fetchTrendingTv()),
     }  
 }
 

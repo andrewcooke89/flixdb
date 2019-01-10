@@ -4,12 +4,12 @@ import App from './Containers/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
-import thunkMiddleWare from 'redux-thunk'
-import { createLogger } from 'redux-logger';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import thunkMiddleWare from 'redux-thunk';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import MoviesReducer from './store/reducers/MovieReducers/getMoviesReducer';
 import TvReducer from './store/reducers/TvReducers/getTvReducer';
+import typeSelectorReducer from './store/reducers/typeSelectorReducer';
 
 // const logger = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -17,6 +17,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
     movies: MoviesReducer,
     tv: TvReducer,
+    typeSelector: typeSelectorReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleWare)));

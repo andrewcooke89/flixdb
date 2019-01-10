@@ -16,7 +16,7 @@ const TypeSelector = (props) => {
 
     return (
         <div style={styles}>
-            <button className={classes.TypeSelector}>
+            <button onClick={props.changeTo} className={classes.TypeSelector}>
                 {props.type}
             </button>
         </div>    

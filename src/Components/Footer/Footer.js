@@ -57,7 +57,7 @@ const Footer = () => {
                 </div>
             </div> 
 
-                <p className={classes.footer__copyright}>&copy; Copyright 2018 Design and Cody by Andrew Cooke using the Movie DB API </p>
+                <p className={classes.footer__copyright}>&copy; Copyright 2018 Design and Coded by Andrew Cooke using the Movie DB API </p>
         </footer>
     );
 };
