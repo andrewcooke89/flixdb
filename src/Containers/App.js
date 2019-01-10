@@ -5,7 +5,7 @@ import TypeSelector from '../Components/TypeSelector/TypeSelector';
 import TrendingCarousel from './Carousels/TrendingCarousel/TrendingCarousel';
 import './App.css';
 import CarouselTemplate from '../Components/Carousels/CarouselTemplate/CarouselTemplate';
-import { fetchTheatreMovies, fetchHighestRatedMovies, fetchUpcommingMovies } from '../store/actions/fetchMovies';
+import { fetchTheatreMovies, fetchHighestRatedMovies, fetchUpcommingMovies, fetchPopulargMovies } from '../store/actions/fetchMovies';
 // inline styles for carousel, pagination and heading placements
 import styles from '../assets/inlineStyles';
 
@@ -15,12 +15,14 @@ class App extends Component {
     theatrePage: 1,
     highestRatedPage: 1,
     upcommingPage: 1,
+    popularPage: 1
   }
 
   componentDidMount () {
     this.props.onFetchTheatreMovies()
     this.props.onFetchHighestRatedMovies()
     this.props.onFetchUpcommingMovies()
+    this.props.onFetchPopularMovies()
   }
 
   render() {
@@ -54,6 +56,14 @@ class App extends Component {
           }
           this.setState({upcommingPage:newPage})
           break;
+        case "popular":
+          if(curState.popularPage === 1){
+            newPage = 2;
+          } else if (curState.popularPage === 2){
+              newPage = 1;
+          }
+          this.setState({popularPage:newPage})
+          break;
         default: return newPage 
       }
       
@@ -85,6 +95,14 @@ class App extends Component {
                 newPage = 1;
             }
             this.setState({upcommingPage:newPage})
+          break;
+          case "popular":
+            if(curState.popularPage === 1){
+              newPage = 2;
+            } else if (curState.popularPage === 2){
+                newPage = 1;
+            }
+            this.setState({popularPage:newPage})
           break;
           default: return newPage 
         }
@@ -132,6 +150,18 @@ class App extends Component {
           pagForwardClickMethod={() => PageForward("upcomming")}
           pagBackClickMethod={() => PageBack("upcomming")}
         />
+        {/* popular carousel */}
+        <CarouselTemplate 
+          headingText="POPULAR"
+          headingStyleProp={styles.headingPlacement.popularHeadingStyle}
+          pagBackStyleProp={styles.paginationPlacement.popularPagBack}
+          pagForwardStyleProp={styles.paginationPlacement.popularPagForward}
+          CarouselStyle={styles.carouselPlacement.popularCarouselStyle}
+          itemList={this.props.popularMovies} 
+          page={this.state.popularPage}
+          pagForwardClickMethod={() => PageForward("popular")}
+          pagBackClickMethod={() => PageBack("popular")}
+        />
       </div>
     );
   }
@@ -141,7 +171,8 @@ const mapStateToProps = state => {
   return {
       inTheatreMovies: state.theatreResults,
       highestRatedMovies: state.highestRatedResults,
-      upcommingMovies: state.upcommingResults
+      upcommingMovies: state.upcommingResults,
+      popularMovies: state.popularResults
   }
 }
 
@@ -149,7 +180,8 @@ const mapDispatchToProps = dispatch => {
   return {
       onFetchTheatreMovies: () => dispatch(fetchTheatreMovies()),
       onFetchHighestRatedMovies: () => dispatch(fetchHighestRatedMovies()),
-      onFetchUpcommingMovies: () => dispatch(fetchUpcommingMovies())
+      onFetchUpcommingMovies: () => dispatch(fetchUpcommingMovies()),
+      onFetchPopularMovies: () => dispatch(fetchPopulargMovies())
   }  
 }
 

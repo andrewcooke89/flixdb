@@ -8,7 +8,10 @@ const styles = {
         },
         upcommingCarouselStyle: {
             gridArea: "upcomming-start / 2 / upcomming-end / 16"
-        }        
+        },  
+        popularCarouselStyle: {
+            gridArea: "popular-start / 2 / popular-end / 16"
+        }      
     },
     headingPlacement: {
         InTheatresHeadingStyle: {
@@ -19,6 +22,9 @@ const styles = {
           },
           upcommingHeadingStyle: {
               gridArea: "highestRated-end / 2 / upcomming-start / 5"
+          },
+          popularHeadingStyle: {
+              gridArea: "upcomming-end / 2 / popular-start / 5"
           }
     },
     paginationPlacement: {
@@ -39,6 +45,12 @@ const styles = {
         },
         upcommingPagForward: {
             gridArea: "upcomming-start / 16 / upcomming-end / -1"
+        },
+        popularPagBack: {
+            gridArea: "popular-start / 1 / popular-end / 2"
+        },
+        popularPagForward: {
+            gridArea: "popular-start / 16 / popular-end / -1"
         }
     }
 }

@@ -50,3 +50,16 @@ export const fetchUpcommingMovies = () => (dispatch) => {
         dispatch({ type: actionTypes.FETCH_UPCOMMING_MOVIE_FAIL, payload: err })
     )
 }
+
+export const fetchPopulargMovies = () => (dispatch) => {
+    dispatch({ type: actionTypes.FETCH_POPULAR_MOVIE_START });
+    fetch(`
+    https://api.themoviedb.org/3/movie/popular?${apiKey}&language=en-US&page=1`)
+    .then(response => response.json())
+    .then(data =>
+        dispatch({ type: actionTypes.FETCH_POPULAR_MOVIE_SUCCESS, payload: data.results })
+    )
+    .catch(err => 
+        dispatch({ type: actionTypes.FETCH_POPULAR_MOVIE_FAIL, payload: err })
+    )
+}
