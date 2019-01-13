@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import MoviesReducer from './store/reducers/MovieReducers/getMoviesReducer';
 import TvReducer from './store/reducers/TvReducers/getTvReducer';
 import typeSelectorReducer from './store/reducers/typeSelectorReducer';
+import moreInfoReducer from './store/reducers/MoreInfoReducer/moreInfoReducer';
 
 // const logger = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -17,7 +18,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
     movies: MoviesReducer,
     tv: TvReducer,
-    typeSelector: typeSelectorReducer
+    typeSelector: typeSelectorReducer,
+    moreInfo: moreInfoReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleWare)));
