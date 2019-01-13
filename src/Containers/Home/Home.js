@@ -168,6 +168,7 @@ class Home extends Component {
           headingText={carouselOneHeading}
           headingStyleProp={styles.headingPlacement.InTheatresHeadingStyle} 
           itemList={currentTheatreAiringTypeData}
+          type={this.props.selectorType}
         />
         {/* highest rated movie carousel */}
         <CarouselTemplate 
@@ -180,6 +181,7 @@ class Home extends Component {
           page={this.state.highestRatedPage}
           pagForwardClickMethod={() => PageForward("highestRated")}
           pagBackClickMethod={() => PageBack("highestRated")}
+          type={this.props.selectorType}
         />
         {/* upcomming carousel */}
         <CarouselTemplate 
@@ -192,6 +194,7 @@ class Home extends Component {
           page={this.state.upcommingPage}
           pagForwardClickMethod={() => PageForward("upcomming")}
           pagBackClickMethod={() => PageBack("upcomming")}
+          type={this.props.selectorType}
         />
         {/* popular carousel */}
         <CarouselTemplate 
@@ -204,6 +207,7 @@ class Home extends Component {
           page={this.state.popularPage}
           pagForwardClickMethod={() => PageForward("popular")}
           pagBackClickMethod={() => PageBack("popular")}
+          type={this.props.selectorType}
         />
         <Footer />
       </div>

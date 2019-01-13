@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Home from '../Containers/Home/Home';
 import MoreInfo from '../Containers/MoreInfo/MoreInfo';
 
@@ -16,8 +16,8 @@ class App extends Component {
     return (
       <div className="container">
         <Switch>
-          <Route path="/moreInfo" component={MoreInfo} />
-          <Route path="/" component={Home} />
+          <Route path="/details/:type/:id" component={MoreInfo} />
+          <Route path="/" exact component={Home} />
         </Switch>
       </div>
     );
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => {
   }  
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
