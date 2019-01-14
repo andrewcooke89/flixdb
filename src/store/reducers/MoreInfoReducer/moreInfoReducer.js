@@ -2,9 +2,6 @@ import * as actionTypes from '../../actions/actionTypes';
 
 const initialState = {
     details: {},
-    reviews: {},
-    trailer: {},
-    similar: {},
     isPending: false,
     error: null
 }
