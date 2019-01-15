@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import Home from '../Containers/Home/Home';
 import MoreInfo from '../Containers/MoreInfo/MoreInfo';
-
-
-
-// inline styles for carousel, pagination and heading placements
+import SearchResults from './SearchResults/SearchResults';
 
 
 class App extends Component {
@@ -17,6 +14,7 @@ class App extends Component {
       <div className="container">
         <Switch>
           <Route path="/details/:type/:id" component={MoreInfo} />
+          <Route path="/search" component={SearchResults} />
           <Route path="/" exact component={Home} />
         </Switch>
       </div>

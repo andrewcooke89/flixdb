@@ -2,19 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NavBar from '../../Components/NavBar/NavBar';
 import apiKey from '../../assets/apikey';
+import { withRouter } from 'react-router-dom';
 import { fetchMoreInfo, fetchSimilar, fetchReviews, fetchTrailer } from '../../store/actions/fetchMoreInfo';
 import classes from './MoreInfo.module.css';
 import Footer from '../../Components/Footer/Footer';
-import CarouselTemplate from '../../Components/Carousels/CarouselTemplate/CarouselTemplate';
+import CarouselItem from '../../Components/Carousels/CarouselItem/CarouselItem';
 
 
 class MoreInfo extends Component {
 
-
+    state = {
+        page: 1,
+      
+    }
     
     // make api requests 
     componentDidMount() {
         this.fetchData()
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props.match.params.id !== prevProps.match.params.id){
+            this.fetchData()
+        }
     }
 
     // handle api requests using the id and type params from the previous link
@@ -48,8 +58,30 @@ class MoreInfo extends Component {
         }
         return review;
     }
+
+    pageChange = () => {
+        const curState = {...this.state};
+        let newState;
+        if(curState.page === 1){
+            newState = 2;
+        } else {
+            newState = 1;
+        }
+        this.setState({page: newState})
+    }
     
     render() {
+
+         // Pag icons
+         const backIcon = <svg  xmlns="http://www.w3.org/2000/svg" className={classes.moreInfo__similar_back_icon} viewBox="0 0 20 20">
+         <path d="M14.959 4.571l-7.203 4.949c0 0-0.279 0.201-0.279 0.481s0.279 0.479 0.279 0.479l7.203 4.951c0.572 0.38 1.041 0.099 1.041-0.626v-9.609c0-0.727-0.469-1.008-1.041-0.625zM6 4h-1c-0.553 0-1 0.048-1 0.6v10.8c0 0.552 0.447 0.6 1 0.6h1c0.553 0 1-0.048 1-0.6v-10.8c0-0.552-0.447-0.6-1-0.6z"></path>
+         </svg>
+ 
+         const forwardIcon = <svg  xmlns="http://www.w3.org/2000/svg" className={classes.moreInfo__similar_forward_icon} viewBox="0 0 20 20">
+         <title>controller-next</title>
+         <path d="M12.244 9.52l-7.203-4.949c-0.572-0.383-1.041-0.102-1.041 0.625v9.609c0 0.725 0.469 1.006 1.041 0.625l7.203-4.951c0 0 0.279-0.199 0.279-0.478s-0.279-0.481-0.279-0.481zM14 4h1c0.553 0 1 0.048 1 0.6v10.8c0 0.552-0.447 0.6-1 0.6h-1c-0.553 0-1-0.048-1-0.6v-10.8c0-0.552 0.447-0.6 1-0.6z"></path>
+         </svg>
+ 
         
         // backdrop image from the api call
         const backdropStyle = {
@@ -57,7 +89,13 @@ class MoreInfo extends Component {
         };
         
         // film/tv title 
-        const heading = this.props.details.original_title
+        let heading;
+        if(this.props.match.params.type === 'movies'){
+            heading = this.props.details.original_title
+        } else {
+            heading = this.props.details.name
+        }
+        
 
         // star svg 
         const star = <svg className={classes.moreInfo__star}  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20">
@@ -68,19 +106,63 @@ class MoreInfo extends Component {
         // checks if there are reviews and then loops and displays them
         let reviews;
         let reviewsHeading;
-        if(this.props.reviews) {
+        if(this.props.reviews.length > 0) {
             reviewsHeading = <h2 className={classes.moreInfo__summary_heading}>Reviews</h2>
             reviews = this.props.reviews.map(review => {
                 return (
                     <div className={classes.moreInfo__review}>
                         <h4 className={classes.moreInfo__review_author}>Author: {review.author}</h4>
                         <p className={classes.moreInfo__review_text}>{this.limitReview(review.content)}</p>
+                        <a className={classes.moreInfo__review_link} href={review.url}>Read full review</a>
                         <hr className={classes.moreInfo__review_hr}/>
                     </div>
                 )
             })  
         }
+
+        // Similar Carousel
+        let curCarouselPage;
+        let curCarouselItems;
+        let carouselHeading = null
+        let pagBack = null;
+        let pagForward = null;
+        if(this.props.similar.length > 0){
+            if (this.state.page === 1){
+                curCarouselPage = [...this.props.similar].slice(0, 8) 
+            } else  {
+                curCarouselPage = [...this.props.similar].slice(8,16)
+            }
+
+            carouselHeading = <h2 className={classes.moreInfo__summary_heading}>Others you might like</h2>
+
+            pagBack = <div className={classes.moreInfo__similar_pagBack}>
+                        <button    
+                            className={classes.moreInfo__similar_btn} onClick=  {this.pageChange}>{backIcon}
+                        </button>
+                        </div>
+
+            pagForward = <div className={classes.moreInfo__similar_pagForward}>
+                        <button 
+                            className={classes.moreInfo__similar_btn} 
+                            onClick={this.pageChange}>
+                            {forwardIcon}
+                        </button>
+                        </div>
+
+            curCarouselItems = curCarouselPage.map(card => {
+                return (
+                    <CarouselItem
+                        item={`http://image.tmdb.org/t/p/w300${card.poster_path}`}
+                        key={card.id}
+                        id={card.id}
+                        type={this.props.match.params.type}
+                        />
+                );
+            })
+        }
+
        
+        
        
         return (
             <>
@@ -102,9 +184,21 @@ class MoreInfo extends Component {
                         <p className={classes.moreInfo__summary_text}>{this.props.details.overview}</p>
                         {reviewsHeading}
                         {reviews}
+
+                        {carouselHeading}
                     </div>
 
                     
+                    <div className={classes.moreInfo__similar_container}>
+                        
+                        {pagBack}
+
+                        <div className={classes.moreInfo__similar_carousel}>
+                            {curCarouselItems}
+                        </div>
+
+                        {pagForward}
+                    </div>
 
                 </main>
                 <Footer />
@@ -132,4 +226,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoreInfo);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MoreInfo));

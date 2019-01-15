@@ -75,3 +75,54 @@
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
 }
+
+.moreInfo__review_link {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.moreInfo__similar_container {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+.moreInfo__similar_carousel {
+    width: 80%;
+    display: flex;
+}
+
+.moreInfo__similar_pagBack {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.moreInfo__similar_pagForward {
+    width: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.moreInfo__similar_forward_icon {
+    fill: #4387fd;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+}
+
+.moreInfo__similar_back_icon {
+    fill: #4387fd;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+}
+
+.moreInfo__similar_btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+}

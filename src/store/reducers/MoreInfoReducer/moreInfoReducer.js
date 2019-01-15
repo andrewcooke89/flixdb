@@ -2,6 +2,8 @@ import * as actionTypes from '../../actions/actionTypes';
 
 const initialState = {
     details: {},
+    reviews: [],
+    similar: [],
     isPending: false,
     error: null
 }

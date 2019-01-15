@@ -11,6 +11,8 @@ import MoviesReducer from './store/reducers/MovieReducers/getMoviesReducer';
 import TvReducer from './store/reducers/TvReducers/getTvReducer';
 import typeSelectorReducer from './store/reducers/typeSelectorReducer';
 import moreInfoReducer from './store/reducers/MoreInfoReducer/moreInfoReducer';
+import searchReducer from './store/reducers/searchReducer';
+import ScrollToTop from './hoc/ScrollToTop';
 
 // const logger = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -19,12 +21,13 @@ const rootReducer = combineReducers({
     movies: MoviesReducer,
     tv: TvReducer,
     typeSelector: typeSelectorReducer,
-    moreInfo: moreInfoReducer
+    moreInfo: moreInfoReducer,
+    search: searchReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleWare)));
 
-ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><BrowserRouter><ScrollToTop><App /></ScrollToTop></BrowserRouter></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
