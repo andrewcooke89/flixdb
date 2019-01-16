@@ -29,7 +29,7 @@ class MoreInfo extends Component {
 
     // handle api requests using the id and type params from the previous link
     fetchData = (id = this.props.match.params.id, type = this.props.match.params.type) => {
-        if (type === "movies") {
+        if (type === "movies" || type ==="movie") {
             this.props.onFetchMoreInfo(`https://api.themoviedb.org/3/movie/${id}?${apiKey}&language=en-US`)
             this.props.onFetchReviews(`https://api.themoviedb.org/3/movie/${id}/reviews?${apiKey}&language=en-US&page=1`)
             this.props.onFetchSimilar(`https://api.themoviedb.org/3/movie/${id}/similar?${apiKey}&language=en-US&page=1`)
@@ -84,9 +84,13 @@ class MoreInfo extends Component {
  
         
         // backdrop image from the api call
-        const backdropStyle = {
-            backgroundImage: `url('http://image.tmdb.org/t/p/original//${this.props.details.backdrop_path}')`
-        };
+        let backdropStyle;
+        if(this.props.details.backdrop_path){
+            backdropStyle = {
+                backgroundImage: `url('http://image.tmdb.org/t/p/original//${this.props.details.backdrop_path}')`
+            };
+        }
+        
         
         // film/tv title 
         let heading;
@@ -110,11 +114,11 @@ class MoreInfo extends Component {
             reviewsHeading = <h2 className={classes.moreInfo__summary_heading}>Reviews</h2>
             reviews = this.props.reviews.map(review => {
                 return (
-                    <div className={classes.moreInfo__review}>
-                        <h4 className={classes.moreInfo__review_author}>Author: {review.author}</h4>
-                        <p className={classes.moreInfo__review_text}>{this.limitReview(review.content)}</p>
-                        <a className={classes.moreInfo__review_link} href={review.url}>Read full review</a>
-                        <hr className={classes.moreInfo__review_hr}/>
+                    <div key={review.id} className={classes.moreInfo__review}>
+                        <h4 key={`h4${review.id}`} className={classes.moreInfo__review_author}>Author: {review.author}</h4>
+                        <p key={`p${review.id}`} className={classes.moreInfo__review_text}>{this.limitReview(review.content)}</p>
+                        <a key={`a${review.id}`} className={classes.moreInfo__review_link} href={review.url}>Read full review</a>
+                        <hr key={`hr${review.id}`} className={classes.moreInfo__review_hr}/>
                     </div>
                 )
             })  
@@ -167,7 +171,6 @@ class MoreInfo extends Component {
         return (
             <>
                 <NavBar />
-
                 <div style={backdropStyle} className={classes.moreInfo__backdrop}></div>
 
                 <div className={classes.moreInfo__heading}>

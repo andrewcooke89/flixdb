@@ -15,13 +15,16 @@ class SearchResults extends Component {
         this.fetchData();
     }
 
+    componentDidUpdate(prevProps) {
+        if(this.props.match.params.query !== prevProps.match.params.query){
+            this.fetchData()
+        }
+    }
     
 
-    fetchData = () => {
-        // trim the search string replacing space with %20
-       const trimmedSearch = encodeURIComponent(this.props.searchValue.trim());
+    fetchData = (query = this.props.match.params.query) => {
        // fetch data response from search field data
-       fetch(`https://api.themoviedb.org/3/search/multi?${apiKey}&language=en-US&query=${trimmedSearch}&page=1&include_adult=false`)
+       fetch(`https://api.themoviedb.org/3/search/multi?${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`)
        .then(resp => resp.json())
         //set the result state to fetch response
        .then(data => {this.setState({resultList: data.results})})

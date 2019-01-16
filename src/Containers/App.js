@@ -6,6 +6,7 @@ import MoreInfo from '../Containers/MoreInfo/MoreInfo';
 import SearchResults from './SearchResults/SearchResults';
 
 
+
 class App extends Component {
 
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
       <div className="container">
         <Switch>
           <Route path="/details/:type/:id" component={MoreInfo} />
-          <Route path="/search" component={SearchResults} />
+          <Route path="/search/:query" component={SearchResults} />
           <Route path="/" exact component={Home} />
         </Switch>
       </div>

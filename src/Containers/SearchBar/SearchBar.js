@@ -26,7 +26,7 @@ class SearchBar extends Component {
         // redirect is triggered on state change
         if(this.state.redirect){
             // this.setState({redirect: false});
-            return <Redirect to="/search" />
+            return <Redirect to={`/search/${this.props.searchValue}`} />
             
         }
         
