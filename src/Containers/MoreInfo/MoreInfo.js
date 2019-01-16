@@ -33,13 +33,13 @@ class MoreInfo extends Component {
             this.props.onFetchMoreInfo(`https://api.themoviedb.org/3/movie/${id}?${apiKey}&language=en-US`)
             this.props.onFetchReviews(`https://api.themoviedb.org/3/movie/${id}/reviews?${apiKey}&language=en-US&page=1`)
             this.props.onFetchSimilar(`https://api.themoviedb.org/3/movie/${id}/similar?${apiKey}&language=en-US&page=1`)
-            this.props.onFetchTrailer(`https://api.themoviedb.org/3/movie/${id}/videos?${apiKey}&language=en-US`)
+            // this.props.onFetchTrailer(`https://api.themoviedb.org/3/movie/${id}/videos?${apiKey}&language=en-US`)
             
         } else if (type === "tv") {
             this.props.onFetchMoreInfo(`https://api.themoviedb.org/3/tv/${id}?${apiKey}&language=en-US`)
             this.props.onFetchReviews(`https://api.themoviedb.org/3/tv/${id}/reviews?${apiKey}&language=en-US&page=1`)
             this.props.onFetchSimilar(`https://api.themoviedb.org/3/tv/${id}/similar?${apiKey}&language=en-US&page=1`)
-            this.props.onFetchTrailer(`https://api.themoviedb.org/3/movie/${id}/videos?${apiKey}&language=en-US`)
+            // this.props.onFetchTrailer(`https://api.themoviedb.org/3/movie/${id}/videos?${apiKey}&language=en-US`)
         }
     }
 
@@ -84,23 +84,24 @@ class MoreInfo extends Component {
  
         
         // backdrop image from the api call
+        
         let backdropStyle;
         if(this.props.details.backdrop_path){
             backdropStyle = {
                 backgroundImage: `url('http://image.tmdb.org/t/p/original//${this.props.details.backdrop_path}')`
             };
+           
+
         }
-        
-        
+
         // film/tv title 
         let heading;
-        if(this.props.match.params.type === 'movies'){
-            heading = this.props.details.original_title
+        if(this.props.match.params.type !== 'tv'){
+            heading = this.props.details.title
         } else {
             heading = this.props.details.name
         }
         
-
         // star svg 
         const star = <svg className={classes.moreInfo__star}  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20">
         <title>star</title>
@@ -165,9 +166,6 @@ class MoreInfo extends Component {
             })
         }
 
-       
-        
-       
         return (
             <>
                 <NavBar />
