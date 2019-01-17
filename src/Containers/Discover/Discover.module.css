@@ -1,0 +1,46 @@
+.discover {
+    margin: 0 auto;
+    margin-top: 15rem;
+    width: 80%;
+    text-align: center;
+}
+
+.discover__heading {
+    font-size: 3rem;
+    color: #4387fd;
+    margin-bottom: 5rem;
+
+}
+
+.discover__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discover__filter {
+    margin: 1rem;
+    padding: 1rem;
+    width: 12rem;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #40E0D0;
+    border: none;
+}
+
+.discover__btn {
+    margin-left: 1rem;
+    background-color: transparent;
+    fill: #4387fd;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    cursor: pointer;
+}
+
+.discover__hr {
+    margin: 2rem 0;
+    border: 0;
+    height: 3px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}

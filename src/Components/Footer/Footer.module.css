@@ -1,7 +1,7 @@
 .footer {
     grid-area: footer-start / 1 / footer-end / -1;
 
-    background-color: black;
+    background: #070513;  
     border-image: linear-gradient(to right, #820310 0%,#820310 25%, #4387fd 71%, #4387fd 100%);
 	border-image-slice: 1;
     border-top: .5rem solid ;

@@ -66,7 +66,7 @@ class SearchResults extends Component {
                 <NavBar />
                 <main className={classes.searchResults} >
                     
-                    <h1 className={classes.searchResults__heading}>Results for {this.props.searchValue}</h1>
+                    <h1 className={classes.searchResults__heading}>{`Results for "${this.props.searchValue}"`}</h1>
         
                     <div className={classes.searchResults_resultsContainer}>
                         {results}

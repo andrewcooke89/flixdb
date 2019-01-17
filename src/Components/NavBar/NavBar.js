@@ -37,7 +37,7 @@ const NavBar = () => {
                     </div>
                     
                 </NavLink>
-                <NavLink className={classes.NavBar__link} exact to="/">
+                <NavLink className={classes.NavBar__link} exact to="/discover">
                     <div className={classes.NavBar__link_group}>
                         {DiscoverIcon}
                         <span className={classes.NavBar__link_text}>Discover</span>

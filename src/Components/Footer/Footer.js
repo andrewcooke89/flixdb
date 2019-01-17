@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
 
                 <div className={classes.footer__link_item}>       
-                    <Link className={classes.footer__link} to="#">
+                    <Link className={classes.footer__link} to="/discover">
                         {DiscoverIcon}  Discover
                     </Link>
                 </div> 
