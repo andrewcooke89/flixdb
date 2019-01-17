@@ -4,6 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Home from '../Containers/Home/Home';
 import MoreInfo from '../Containers/MoreInfo/MoreInfo';
 import SearchResults from './SearchResults/SearchResults';
+import Discover from '../Containers/Discover/Discover';
 
 
 
@@ -16,6 +17,7 @@ class App extends Component {
         <Switch>
           <Route path="/details/:type/:id" component={MoreInfo} />
           <Route path="/search/:query" component={SearchResults} />
+          <Route path="/discover" component={Discover} />
           <Route path="/" exact component={Home} />
         </Switch>
       </div>

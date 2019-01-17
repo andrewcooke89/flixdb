@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.moreInfo__backdrop:hover {
+    
+}
+
 .moreInfo__heading {
     position: absolute;
     bottom: 0;

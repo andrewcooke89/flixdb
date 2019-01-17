@@ -2,8 +2,6 @@
     /* grid-area: header-start / 1 / header-end / -1; */
 
     background: #0f0c29;  
-    background: -webkit-linear-gradient(to right, #040523, #181947, #0f0c29); 
-    background: linear-gradient(to right, #040523, #181947, #0f0c29); 
 
     padding: .5rem;
     border-image: linear-gradient(to right, #820310 0%,#820310 25%, #4387fd 71%, #4387fd 100%);
@@ -63,7 +61,7 @@
 .NavBar__link:hover,
 .NavBar__link:active {
     color: #4387fd;
-    border-bottom: .5rem solid #4387fd;
+    border-bottom: .1rem solid #4387fd;
     
 }
 
