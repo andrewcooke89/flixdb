@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './TrendingCarousel.module.css';
-import TrendingCarouselImg from '../../../Components/Carousels/TrendingCarouselImg/TrendingCarouselImg';
+import TrendingCarouselImg from
+'../../../Components/Carousels/TrendingCarouselImg/TrendingCarouselImg';
 import { connect } from 'react-redux';
 import { fetchTrendingMovies } from '../../../store/actions/fetchMovies';
 import { fetchTrendingTv } from '../../../store/actions/fetchTv';
@@ -48,6 +49,7 @@ class TrendingCarousel extends Component{
                     image={`http://image.tmdb.org/t/p/w300${card.poster_path}`}
                     key={card.id}
                     id={card.id}
+                    type={this.props.selectorType}
                     />
             );
         })

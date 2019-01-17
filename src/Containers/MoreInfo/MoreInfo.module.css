@@ -1,0 +1,128 @@
+.moreInfo__backdrop {
+    width: 100%;
+    background-size: cover;
+    height: 75rem;
+    opacity: .4;
+    
+    border-image: linear-gradient(to right, #820310 0%,#820310 25%, #4387fd 71%, #4387fd 100%);
+	border-image-slice: 1;
+    border-bottom: .5rem solid ;
+
+    position: relative;
+}
+
+.moreInfo__heading {
+    position: absolute;
+    bottom: 0;
+    left: 15rem;
+    padding-bottom: 3rem;
+}
+
+.moreInfo__title {
+    font-size: 5rem;
+    color: #fff;
+}
+
+.moreInfo__rating {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.moreInfo__star {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: #4387fd;
+}
+
+.moreInfo__summary_container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
+.moreInfo__summary_heading {
+    color: #4387fd;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.moreInfo__summary_text {
+    color: #ccc;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+}
+
+.moreInfo__review {
+    display: flex;
+    flex-direction: column;
+}
+
+.moreInfo__review_author {
+    color: #820310;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.moreInfo__review_text {
+    color: #ccc;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.moreInfo__review_hr {
+    margin-bottom: 2rem;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
+.moreInfo__review_link {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.moreInfo__similar_container {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+.moreInfo__similar_carousel {
+    width: 80%;
+    display: flex;
+}
+
+.moreInfo__similar_pagBack {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.moreInfo__similar_pagForward {
+    width: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.moreInfo__similar_forward_icon {
+    fill: #4387fd;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+}
+
+.moreInfo__similar_back_icon {
+    fill: #4387fd;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+}
+
+.moreInfo__similar_btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+}

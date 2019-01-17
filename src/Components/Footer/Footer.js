@@ -57,11 +57,11 @@ const Footer = () => {
                 </div>
             </div> 
 
-                <p className={classes.footer__copyright}>&copy; Copyright 2018 Design and Coded by Andrew Cooke using the Movie DB API </p>
+                <p className={classes.footer__copyright}>&copy; Copyright 2018 by Andrew Cooke using the Movie DB API </p>
         </footer>
     );
 };
 
-// This product uses the TMDb API but is not endorsed or certified by TMDb."
+
 
 export default Footer;

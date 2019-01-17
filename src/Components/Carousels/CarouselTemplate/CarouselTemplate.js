@@ -20,6 +20,7 @@ const CarouselTemplate = (props) => {
             item={`http://image.tmdb.org/t/p/w300${item.poster_path}`} 
             key={item.id}
             id={item.id}
+            type={props.type}
             />
         )
         
