@@ -9,7 +9,7 @@
 }
 
 .SearchBar:focus {
-    border: .2rem solid #4387fd;
+    border: .2rem solid #40E0D0;
     transform: scale(1.1);
     outline: none;
 }

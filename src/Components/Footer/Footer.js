@@ -49,7 +49,7 @@ const Footer = () => {
 
             <div className={classes.footer__movieCredit}>
                 <a href="https://www.themoviedb.org/" className=    {classes.footer__movieCredit_logo}>
-                    <img src={movieDbLogo} alt="Movie Database logo" />
+                    <img src={movieDbLogo}  alt="Movie Database logo" />
                 </a>
 
                 <div className={classes.footer__movieCredit_text}>

@@ -66,3 +66,8 @@ export const FETCH_TRAILER_FAIL = 'FETCH_TRAILER_FAIL'
 
 // search action types
 export const CHANGE_SEARCH_FIELD = 'CHANGE_SEARCH_FIELD'
+
+// Discover action types
+export const FETCH_DISCOVER_START = 'FETCH_DISCOVER_START'
+export const FETCH_DISCOVER_SUCCESS = 'FETCH_DISCOVER_SUCCESS'
+export const FETCH_DISCOVER_FAIL = 'FETCH_DISCOVER_FAIL'

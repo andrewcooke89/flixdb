@@ -1,10 +1,10 @@
 .NavBar {
     /* grid-area: header-start / 1 / header-end / -1; */
 
-    background: #0f0c29;  
+    background: #070514;  
 
     padding: .5rem;
-    border-image: linear-gradient(to right, #820310 0%,#820310 25%, #4387fd 71%, #4387fd 100%);
+    border-image: linear-gradient(to right, #4387fd 0%,#40E0D0 25%, #40E0D0 71%, #4387fd 100%);
 	border-image-slice: 1;
     border-bottom: .5rem solid ;
 
@@ -60,7 +60,7 @@
 
 .NavBar__link:hover,
 .NavBar__link:active {
-    color: #4387fd;
+    color: #40E0D0;
     border-bottom: .1rem solid #4387fd;
     
 }
@@ -73,5 +73,5 @@
 .NavBar__link_icon {
     height: 3rem;
     width: 3rem;
-    fill: #4387fd;
+    fill: #40E0D0;
 }

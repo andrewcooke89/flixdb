@@ -2,12 +2,14 @@
     margin: 0 auto;
     margin-top: 15rem;
     width: 80%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .discover__heading {
     font-size: 3rem;
-    color: #4387fd;
+    color: #40E0D0;
     margin-bottom: 5rem;
 
 }
@@ -31,7 +33,7 @@
 .discover__btn {
     margin-left: 1rem;
     background-color: transparent;
-    fill: #4387fd;
+    fill: #40E0D0;
     width: 3rem;
     height: 3rem;
     border: none;
@@ -44,3 +46,35 @@
     height: 3px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
 }
+
+.discover__resultsContainer {
+    margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discover__resultsContainer_list {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.discover__resultsContainer_btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.discover__resultsContainer_changePage {
+    width: 10rem;
+    height: 4rem;
+    background-color: #40E0D0;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    
+}
+

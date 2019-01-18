@@ -13,6 +13,7 @@ import typeSelectorReducer from './store/reducers/typeSelectorReducer';
 import moreInfoReducer from './store/reducers/MoreInfoReducer/moreInfoReducer';
 import searchReducer from './store/reducers/searchReducer';
 import ScrollToTop from './hoc/ScrollToTop';
+import discoverReducer from './store/reducers/DiscoverReducer/discoverReducer';
 
 // const logger = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
     tv: TvReducer,
     typeSelector: typeSelectorReducer,
     moreInfo: moreInfoReducer,
-    search: searchReducer
+    search: searchReducer,
+    discover: discoverReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleWare)));
