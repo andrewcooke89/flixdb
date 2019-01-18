@@ -45,6 +45,7 @@ class SearchResults extends Component {
             results = filterData.map(result => {
                     return (
                         <CarouselItem
+                            margin={{marginRight: "1.3rem", marginBottom: "3rem"}}
                             item={`http://image.tmdb.org/t/p/w300${result.poster_path}`}
                             key={result.id}
                             id={result.id}

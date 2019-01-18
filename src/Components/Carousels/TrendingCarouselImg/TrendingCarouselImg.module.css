@@ -17,5 +17,5 @@
 
 .TrendingCarouselImg__Container:hover {
     transform: scale(1.05);
-    border: 1px solid #4387fd;
+    border: 2px solid #40E0D0;
 }
