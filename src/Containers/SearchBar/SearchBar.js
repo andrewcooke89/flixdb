@@ -30,7 +30,6 @@ class SearchBar extends Component {
             
         }
         
-        
         return (
             <form  className={classes.SearchBar__searchBox}>
                 <input onKeyDown={this.onSubmit} onChange={this.props.onSearchChange} className={classes.SearchBar}  type="search" placeholder="Search Movies and Series" />

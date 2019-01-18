@@ -24,7 +24,7 @@
 
 .moreInfo__title {
     font-size: 5rem;
-    color: #fff;
+    color: #40E0D0;
 }
 
 .moreInfo__rating {
@@ -35,7 +35,7 @@
 .moreInfo__star {
     width: 2.5rem;
     height: 2.5rem;
-    fill: #4387fd;
+    fill: #40E0D0;
 }
 
 .moreInfo__summary_container {
@@ -45,7 +45,7 @@
 }
 
 .moreInfo__summary_heading {
-    color: #4387fd;
+    color: #40E0D0;
     font-size: 3rem;
     margin-bottom: 1rem;
 }
@@ -111,19 +111,14 @@
     align-items: center;
 }
 
-.moreInfo__similar_forward_icon {
-    fill: #4387fd;
+.moreInfo__similar_icon {
+    fill: #40E0D0;
     width: 4rem;
     height: 4rem;
     cursor: pointer;
 }
 
-.moreInfo__similar_back_icon {
-    fill: #4387fd;
-    width: 4rem;
-    height: 4rem;
-    cursor: pointer;
-}
+
 
 .moreInfo__similar_btn {
     background-color: transparent;

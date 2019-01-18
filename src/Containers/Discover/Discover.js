@@ -147,6 +147,8 @@ class Discover extends Component {
                         </div>
                     </div>
 
+                    
+
                     <div className={classes.discover__resultsContainer_btnContainer}>
                         <button 
                             style={{marginRight: "2rem", marginLeft: "-2rem"}}  
