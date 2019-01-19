@@ -64,7 +64,7 @@ class SearchResults extends Component {
         
         return (
             <>
-                <NavBar />
+                <NavBar isAuthenticated={this.props.isAuthenticated} />
                 <main className={classes.searchResults} >
                     
                     <h1 className={classes.searchResults__heading}>{`Results for "${this.props.searchValue}"`}</h1>
@@ -81,7 +81,8 @@ class SearchResults extends Component {
 
 const mapStateToProps = state => {
     return {
-        searchValue: state.search.searchValue
+        searchValue: state.search.searchValue,
+        isAuthenticated: state.auth.isAuthenticated
     };
 };
 

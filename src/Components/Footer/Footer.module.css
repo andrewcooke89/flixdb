@@ -2,7 +2,7 @@
     grid-area: footer-start / 1 / footer-end / -1;
 
     background: #070514;  
-    border-image: linear-gradient(to right, #4387fd 0%,#40E0D0 25%, #40E0D0 71%, #4387fd 100%);
+    border-image: linear-gradient(to right, #fff 0%,#40E0D0 25%, #40E0D0 71%, #fff 100%);
 	border-image-slice: 1;
     border-top: .5rem solid ;
 
@@ -28,7 +28,7 @@
     font-size: 3rem;
     color: #40E0D0;
     grid-area: 2 / 2 / 3 / 3;
-    border-bottom: 1px solid #4387fd;
+    border-bottom: 1px solid #fff;
 }
 
 .footer__h2 {
