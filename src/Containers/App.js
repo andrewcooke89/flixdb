@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import Home from '../Containers/Home/Home';
 import MoreInfo from '../Containers/MoreInfo/MoreInfo';
 import SearchResults from './SearchResults/SearchResults';
@@ -23,6 +23,7 @@ class App extends Component {
           <Route exact path="/account/signIn" component={SignIn} />
           <Route  path="/account/myAccount" component={MyAccount} />
           <Route path="/" exact component={Home} />
+          <Redirect from="/approved" to="/account/myAccount" />
         </Switch>
       </div>
     );

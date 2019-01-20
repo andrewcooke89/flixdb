@@ -13,6 +13,6 @@ export const handleGuestLogin = () => dispatch => {
     dispatch({ type: actionTypes.FETCH_GUEST_SESSION_START})
     fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?${apiKey}`)
         .then(res => res.json())
-        .then(data => dispatch({ type: actionTypes.FETCH_GETREVIEWS_SUCCESS, payload: data}))
+        .then(data => dispatch({ type: actionTypes.FETCH_GUEST_SESSION_SUCCESS, payload: data}))
         .catch(err => dispatch({ type: actionTypes.FETCH_GUEST_SESSION_FAIL, payload: err}))
 }
