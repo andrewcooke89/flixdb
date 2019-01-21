@@ -16,3 +16,17 @@ export const handleGuestLogin = () => dispatch => {
         .then(data => dispatch({ type: actionTypes.FETCH_GUEST_SESSION_SUCCESS, payload: data}))
         .catch(err => dispatch({ type: actionTypes.FETCH_GUEST_SESSION_FAIL, payload: err}))
 }
+
+export const getSessionId = (token) => dispatch => {
+    dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_START})
+    fetch(`https://api.themoviedb.org/3/authentication/session/new?${apiKey}`, {
+        method: 'POST',
+        body: JSON.stringify({ request_token: token }),
+        headers: {
+            'Content-Type': 'application/json'
+          }
+    })
+    .then(res => res.json())
+    .then(data => dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_SUCCESS, payload: data}))
+    .catch(err => dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_FAIL, payload: err}))
+}

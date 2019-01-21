@@ -25,7 +25,11 @@
     border-radius: 50%;
     margin-left: 1rem;
     grid-column: 1;
+
+    
 }
+
+
 
 .NavBar__links {
     grid-column: 14 / -1;

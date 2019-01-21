@@ -21,9 +21,9 @@ class App extends Component {
           <Route path="/search/:query" component={SearchResults} />
           <Route path="/discover" component={Discover} />
           <Route exact path="/account/signIn" component={SignIn} />
-          <Route  path="/account/myAccount" component={MyAccount} />
+          <Route  path="/account/myAccount/:status" component={MyAccount} />
           <Route path="/" exact component={Home} />
-          <Redirect from="/approved" to="/account/myAccount" />
+          
         </Switch>
       </div>
     );

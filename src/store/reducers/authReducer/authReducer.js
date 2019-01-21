@@ -6,7 +6,8 @@ const initialState = {
     requestToken: "",
     isPending: false,
     error: null,
-    guestSession: {}
+    guestSession: {},
+    sessionId: {}
 };
 
 const authReducer = (state = initialState, action) => {
@@ -42,6 +43,23 @@ const authReducer = (state = initialState, action) => {
                 authenticationType: "GUEST"
             }
         case actionTypes.FETCH_GUEST_SESSION_FAIL:
+            return {
+                ...state,
+                isPending: false,
+                error: action.payload
+            }
+        case actionTypes.FETCH_GET_SESSION_ID_START:
+            return {
+                ...state,
+                isPending: true
+            }
+        case actionTypes.FETCH_GET_SESSION_ID_SUCCESS:
+            return {
+                ...state,
+                isPending: false,
+                sessionId: action.payload
+            }
+        case actionTypes.FETCH_GET_SESSION_ID_FAIL:
             return {
                 ...state,
                 isPending: false,

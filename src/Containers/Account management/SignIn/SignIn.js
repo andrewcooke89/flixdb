@@ -19,7 +19,7 @@ class SignIn extends Component {
                     <main className={classes.signIn__content_container}>
                         <div className={classes.signIn__btn_choice_container}>
                             <a  className={classes.signIn__btn_container}
-                                href={`https://www.themoviedb.org/authenticate/${this.props.requestToken}?redirect_to=http://localhost:3000/approved`} >
+                                href={`https://www.themoviedb.org/authenticate/${this.props.requestToken}?redirect_to=http://localhost:3000/account/myAccount/approved`} >
                                 <button 
                                     className={classes.signIn__btn}>Sign in or Register
                                 </button>
@@ -29,6 +29,7 @@ class SignIn extends Component {
                         </div>
                         <div className={classes.signIn__btn_choice_container}>
                             <Link style={{paddingTop: ".5rem"}} onClick={this.props.onHandleGuestLogin} to="/account/myAccount" className={classes.signIn__btn}>Sign in as Guest</Link>
+                           
                             <p className={classes.signIn__text}>Signing in as Guest offers access to a limited range of features such as rating movies, TV shows and episodes</p>
                         </div>  
                     </main>

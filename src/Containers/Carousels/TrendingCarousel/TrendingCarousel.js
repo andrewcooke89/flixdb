@@ -89,6 +89,20 @@ class TrendingCarousel extends Component{
         const headingStyle = {
             gridArea: "gutter-2 / 2 / trendingCarousel-start / 3"
         }
+        
+
+        // media query
+        if(window.innerWidth < 1200){
+            if(this.state.curPage === 1){
+                curTrendingPage = [...currentTrendingTypeData].slice(0, 3)
+            } else if(this.state.curPage === 2) {
+                curTrendingPage = [...currentTrendingTypeData].slice(5, 10)
+            } else if(this.state.curPage === 3) {
+                curTrendingPage = [...currentTrendingTypeData].slice(10, 15)
+            } else if(this.state.curPage === 4) {
+                curTrendingPage = [...currentTrendingTypeData].slice(15, 20)
+            } 
+        }
 
         return (
             <>

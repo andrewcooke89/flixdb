@@ -9,9 +9,7 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    font-family: 'Ubuntu', sans-serif;
-
-    
+    font-family: 'Ubuntu', sans-serif;   
 }
 
 
@@ -22,4 +20,16 @@ body {
     background: linear-gradient(to right, #040523, #181947, #0f0c29);  */
     
     background: rgb(44, 44, 44);
+}
+
+@media screen and (max-width: 1200px){
+    html {
+        font-size: 56.5%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    html {
+        font-size: 52.5%;
+    }
 }
