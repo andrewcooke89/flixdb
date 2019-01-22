@@ -27,6 +27,7 @@ export const getSessionId = (token) => dispatch => {
           }
     })
     .then(res => res.json())
-    .then(data => dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_SUCCESS, payload: data}))
+    .then(data => dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_SUCCESS, payload: data.session_id}))
     .catch(err => dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_FAIL, payload: err}))
 }
+

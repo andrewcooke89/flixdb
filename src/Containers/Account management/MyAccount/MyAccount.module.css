@@ -14,6 +14,7 @@
     border-radius: 10px;
     border: none;
     background-color: #40E0D0;
+    cursor: pointer;
 }
 
 .myAccount__hr {
@@ -27,4 +28,15 @@
     text-align: center;
     color: #40E0D0;
     font-size: 3rem;
+}
+
+.myAccount__mainContainer {
+    margin-bottom: 32rem;
+}
+
+.myAccount__noListText {
+    margin-top: 5rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
 }
