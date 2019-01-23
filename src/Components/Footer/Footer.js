@@ -20,10 +20,10 @@ const Footer = (props) => {
     </svg>
 
     let accountLink;
-        if(props.isAuthenticated) {
+        if(props.loginStatus === "loggedIn") {
             accountLink = 
                 <div className={classes.footer__link_item}>      
-                    <Link className={classes.footer__link} to="/account/myAccount">
+                    <Link className={classes.footer__link} to="/account/myAccount/approved">
                         {AccountIcon}    My Account
                     </Link>
                 </div>

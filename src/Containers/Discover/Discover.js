@@ -74,7 +74,7 @@ class Discover extends Component {
         
         return (
             <>
-                <NavBar isAuthenticated={this.props.isAuthenticated} />
+                <NavBar loginStatus={this.props.loginStatus} />
                 <main >
                     <div className={classes.discover}>
                         <h1 className={classes.discover__heading}>DISCOVER NEW ENTERTAINMENT </h1>
@@ -163,7 +163,7 @@ class Discover extends Component {
                         </button>
                     </div>
                 </main>
-                <Footer isAuthenticated={this.props.isAuthenticated} />
+                <Footer loginStatus={this.props.loginStatus} />
             </>
         );
     };
@@ -172,7 +172,7 @@ class Discover extends Component {
 const mapStateToProps = state => {
     return {
         discover: state.discover.discoverResults,
-        isAuthenticated: state.auth.isAuthenticated
+        loginStatus: state.auth.loginStatus
     };
 };
 

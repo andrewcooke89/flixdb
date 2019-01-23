@@ -1,13 +1,12 @@
 import * as actionTypes from '../../actions/actionTypes';
 
 const initialState = {
-    isAuthenticated: false,
     authenticationType: null,
     requestToken: "",
     isPending: false,
     error: null,
-    guestSession: {},
-    sessionId: {}
+    sessionId: {},
+    loginStatus: "loggedOut"
 };
 
 const authReducer = (state = initialState, action) => {
@@ -29,25 +28,6 @@ const authReducer = (state = initialState, action) => {
                 isPending: false,
                 error: action.payload
             }
-        case actionTypes.FETCH_GUEST_SESSION_START:
-            return {
-                ...state,
-                isPending: true
-            }
-        case actionTypes.FETCH_GUEST_SESSION_SUCCESS:
-            return {
-                ...state,
-                isPending: false,
-                guestSession: action.payload,
-                isAuthenticated: true,
-                authenticationType: "GUEST"
-            }
-        case actionTypes.FETCH_GUEST_SESSION_FAIL:
-            return {
-                ...state,
-                isPending: false,
-                error: action.payload
-            }
         case actionTypes.FETCH_GET_SESSION_ID_START:
             return {
                 ...state,
@@ -64,6 +44,17 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 isPending: false,
                 error: action.payload
+            }
+        case actionTypes.CHANGE_LOGIN_STATUS:
+            return {
+                ...state,
+                loginStatus: action.payload
+            }
+        case actionTypes.LOG_OUT:
+            return {
+                ...state,
+                loginStatus: "loggedOut",
+                sessionId: {}
             }
         default: return state;
     } 

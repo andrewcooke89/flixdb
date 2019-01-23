@@ -40,3 +40,24 @@
     color: #fff;
     font-size: 1.6rem;
 }
+
+.myAccount__logOut_container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.myAccount__logOut {
+    border: none;
+    background-color: #40E0D0;
+    cursor: pointer;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 1rem;
+    margin-right: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+

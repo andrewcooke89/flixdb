@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import Home from '../Containers/Home/Home';
 import MoreInfo from '../Containers/MoreInfo/MoreInfo';
 import SearchResults from './SearchResults/SearchResults';
@@ -14,7 +14,14 @@ class App extends Component {
 
   render() {
 
+    // auth routes
+    let notLoggedIn;
+    if(this.props.loginStatus === "loggedOut"){
+      notLoggedIn = <Redirect  from="/account/myAccount" to="/account/signIn" />
+    } 
+
     return (
+
       <div className="container">
         <Switch>
           <Route path="/details/:type/:id" component={MoreInfo} />
@@ -23,6 +30,8 @@ class App extends Component {
           <Route exact path="/account/signIn" component={SignIn} />
           <Route  path="/account/myAccount/:status" component={MyAccount} />
           <Route path="/" exact component={Home} />
+
+          {notLoggedIn}
           
         </Switch>
       </div>
@@ -32,6 +41,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
+    loginStatus: state.auth.loginStatus
      
   }
 }

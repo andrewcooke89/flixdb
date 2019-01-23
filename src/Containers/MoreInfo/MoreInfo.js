@@ -168,7 +168,7 @@ class MoreInfo extends Component {
 
         return (
             <>
-                <NavBar isAuthenticated={this.props.isAuthenticated} />
+                <NavBar loginStatus={this.props.loginStatus} />
                 <div style={backdropStyle} className={classes.moreInfo__backdrop}></div>
 
                 <div className={classes.moreInfo__heading}>
@@ -202,7 +202,7 @@ class MoreInfo extends Component {
                     </div>
 
                 </main>
-                <Footer isAuthenticated={this.props.isAuthenticated}  />
+                <Footer loginStatus={this.props.loginStatus}  />
             </>
         );
     };
@@ -215,7 +215,7 @@ const mapStateToProps = state => {
         trailers: state.moreInfo.trailers,
         similar: state.moreInfo.similar,
         details: state.moreInfo.details,
-        isAuthenticated: state.auth.isAuthenticated
+        loginStatus: state.auth.loginStatus
     };
 };
 

@@ -153,7 +153,7 @@ class Home extends Component {
 
     return (
       <div className={classes.home__container}>
-        <NavBar isAuthenticated={this.props.isAuthenticated} />
+        <NavBar loginStatus={this.props.loginStatus} />
         <TypeSelector changeTo={() => changeSelectionType(this.props.onFetchHighestRatedMovies, this.props.onFetchPopularMovies, this.props.onFetchTheatreMovies, this.props.onFetchUpcommingMovies, this.props.onFetchTrendingMovies, this.props.onChangeToMovies)} type="Movies" />
         <TypeSelector changeTo={() => changeSelectionType(this.props.onFetchAiringTodayTv, this.props.onFetchHighestRatedTv, this.props.onFetchOnAirTv, this.props.onFetchPopularTv, this.props.onFetchTrendingTv, this.props.onChangeToTv)} type="TV-Series" />
         <TrendingCarousel />
@@ -209,7 +209,7 @@ class Home extends Component {
           pagBackClickMethod={() => PageBack("popular")}
           type={this.props.selectorType}
         />
-        <Footer isAuthenticated={this.props.isAuthenticated}  />
+        <Footer loginStatus={this.props.loginStatus}  />
       </div>
     );
   }
@@ -226,7 +226,7 @@ const mapStateToProps = state => {
       highestRatedTv: state.tv.highestRatedResults,
       onAirTv: state.tv.onAirResults,
       airingTodayTv: state.tv.airingTodayResults,
-      isAuthenticated: state.auth.isAuthenticated
+      loginStatus: state.auth.loginStatus
   }
 }
 

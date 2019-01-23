@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import NavBar from '../../../Components/NavBar/NavBar';
 import Footer from '../../../Components/Footer/Footer';
 import classes from './SignIn.module.css';
-import { fetchRequestToken, handleGuestLogin } from '../../../store/actions/auth';
+import { fetchRequestToken } from '../../../store/actions/auth';
 
 class SignIn extends Component {
 
@@ -27,11 +26,7 @@ class SignIn extends Component {
                             
                             <p className={classes.signIn__text}>Signing in and registering offers a range of features linked to 'The Movie DB', these include rating movies and Tv shows as well as creating custom lists and adding items to favourites/watch lists</p>
                         </div>
-                        <div className={classes.signIn__btn_choice_container}>
-                            <Link style={{paddingTop: ".5rem"}} onClick={this.props.onHandleGuestLogin} to="/account/myAccount" className={classes.signIn__btn}>Sign in as Guest</Link>
-                           
-                            <p className={classes.signIn__text}>Signing in as Guest offers access to a limited range of features such as rating movies, TV shows and episodes</p>
-                        </div>  
+                        
                     </main>
                 <Footer />
             </div>
@@ -48,8 +43,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchRequestToken: () => dispatch(fetchRequestToken()),
-        onHandleGuestLogin: () => dispatch(handleGuestLogin())
+        onFetchRequestToken: () => dispatch(fetchRequestToken())
     };
 };
 

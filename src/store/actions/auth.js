@@ -9,13 +9,7 @@ export const fetchRequestToken = () => dispatch => {
         .catch(err => dispatch({ type: actionTypes.FETCH_REQUESTTOKEN_FAIL, payload: err}))
 };
 
-export const handleGuestLogin = () => dispatch => {
-    dispatch({ type: actionTypes.FETCH_GUEST_SESSION_START})
-    fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?${apiKey}`)
-        .then(res => res.json())
-        .then(data => dispatch({ type: actionTypes.FETCH_GUEST_SESSION_SUCCESS, payload: data}))
-        .catch(err => dispatch({ type: actionTypes.FETCH_GUEST_SESSION_FAIL, payload: err}))
-}
+
 
 export const getSessionId = (token) => dispatch => {
     dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_START})
@@ -30,4 +24,8 @@ export const getSessionId = (token) => dispatch => {
     .then(data => dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_SUCCESS, payload: data.session_id}))
     .catch(err => dispatch({ type: actionTypes.FETCH_GET_SESSION_ID_FAIL, payload: err}))
 }
+
+export const changeLoginStatus = (status) => ({type: actionTypes.CHANGE_LOGIN_STATUS, payload: status})
+
+export const logOut = () => ({type: actionTypes.LOG_OUT});
 

@@ -21,9 +21,9 @@ const NavBar = (props) => {
     </svg>
 
     let accountLink;
-    if(props.isAuthenticated) {
+    if(props.loginStatus === "loggedIn") {
         accountLink = 
-            <NavLink className={classes.NavBar__link} exact to="/account/myAccount">
+            <NavLink className={classes.NavBar__link} exact to="/account/myAccount/approved">
                 <div className={classes.NavBar__link_group}>
                     {AccountIcon}
                     <span className={classes.NavBar__link_text}>My Account</span>

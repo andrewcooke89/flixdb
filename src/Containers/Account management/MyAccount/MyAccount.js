@@ -1,86 +1,102 @@
 import React, { Component} from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../../../Components/NavBar/NavBar';
 import Footer from '../../../Components/Footer/Footer';
 import classes from './MyAccount.module.css';
 import { connect } from 'react-redux';
-import { getSessionId } from '../../../store/actions/auth';
+import { getSessionId, changeLoginStatus, logOut } from '../../../store/actions/auth';
+import { changeList } from '../../../store/actions/changeList';
 import MyLists from '../MyLists/MyLists';
 
 class MyAccount extends Component {
 
     state = {
         list: null
-    }
-
-    
-
-    componentDidMount(){
-        this.props.onGetSessionId(this.parseToken(this.props.location.search))
     };
 
     
-  
-    
-   parseToken = token => token.split('?request_token=')[1].split('&')[0];
+    componentDidMount(){
+        if(this.props.match.params.status === "approved" && this.props.loginStatus === "loggedOut") {
+            this.props.onGetSessionId(this.parseToken(this.props.location.search));
+            this.props.onChangeLoginStatus("loggedIn")
+        }
+        
+    };
 
-   changeList = (list) => {
+    parseToken = token => token.split('?request_token=')[1].split('&')[0];
+
+    changeList = (type) => {
         let newState = {...this.state};
-        newState.list = list;
-        this.setState({ list : newState.list});
-   }
+        newState.list = type;
+        this.setState({list : newState.list});
+        this.props.onChangeList(type)
+    }
 
    
    
     render() {
         
         let list;
-        if(this.state.list === null) {
-            list = 
-            <div>
-                <h1 className={classes.myAccount__heading}>
-                    Select a list!
-                </h1>
-                <p className={classes.myAccount__noListText}>Select a list from above.  These lists help you keep track of your entertainement.   </p>
-            </div>
-        } else if(this.state.list === "favouriteMovies"){
-            list = 
-            <div>
-                <h1 className={classes.myAccount__heading}>
-                    Favourite Movies
-                </h1>
-                <MyLists />
-            </div>
-        } else if(this.state.list === "favouriteTv"){
-            list = 
-            <div>
-                <h1 className={classes.myAccount__heading}>
-                    Favourite TV Shows
-                </h1>
-                <MyLists />
-            </div>
-        } else if(this.state.list === "watchListTv"){
-            list = 
-            <div>
-                <h1 className={classes.myAccount__heading}>
-                    TV series watch list
-                </h1>
-                <MyLists />
-            </div>
-        }else if(this.state.list === "watchListMovies"){
-            list = 
-            <div>
-                <h1 className={classes.myAccount__heading}>
-                    Movies watch list
-                </h1>
-                <MyLists />
-            </div>
-        }
+        if(this.props.loginStatus === "loggedIn"){
+            if(this.state.list === null) {
+                list = 
+                <div>
+                    <h1 className={classes.myAccount__heading}>
+                        Select a list!
+                    </h1>
+                    <p className={classes.myAccount__noListText}>Select a list from above.  These lists help you keep track of your entertainement.   </p>
+                </div>
+            } else if(this.state.list === "favouriteMovies"){
+                list = 
+                <div>
+                    <h1 className={classes.myAccount__heading}>
+                        Favourite Movies
+                    </h1>
+                    <MyLists />
+                </div>
+            } else if(this.state.list === "favouriteTv"){
+                list = 
+                <div>
+                    <h1 className={classes.myAccount__heading}>
+                        Favourite TV Shows
+                    </h1>
+                    <MyLists />
+                </div>
+            } else if(this.state.list === "watchListTv"){
+                list = 
+                <div>
+                    <h1 className={classes.myAccount__heading}>
+                        TV series watch list
+                    </h1>
+                    <MyLists />
+                </div>
+            }else if(this.state.list === "watchListMovies"){
+                list = 
+                <div>
+                    <h1 className={classes.myAccount__heading}>
+                        Movies watch list
+                    </h1>
+                    <MyLists />
+                </div>
+            }
+        } 
+        
         
         
         return (
             <div>
-                <NavBar />
+                <NavBar loginStatus={this.props.loginStatus} />
                     <main style={{marginTop: "10rem"}}>
+                        <div className={classes.myAccount__logOut_container}>
+                            <Link 
+                                to="/"  
+                                className={classes.myAccount__logOut}
+                                onClick={this.props.onLogOut}
+                                >
+                                Log Out
+
+                            </Link>
+                        </div>
                         <div className={classes.myAccount__btn_container}>
                             <button 
                                 onClick={() => this.changeList("favouriteMovies")} 
@@ -111,7 +127,7 @@ class MyAccount extends Component {
                             {list}
                         </div>
                     </main>
-                <Footer  />
+                <Footer loginStatus={this.props.loginStatus}  />
             </div>
         );
     };
@@ -120,13 +136,17 @@ class MyAccount extends Component {
 const mapStateToProps = (state) => {
     return {
         requestToken: state.auth.requestToken,
-        sessionID: state.auth.sessionID
+        sessionID: state.auth.sessionID,
+        loginStatus: state.auth.loginStatus
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onGetSessionId: (token) => dispatch(getSessionId(token)),
+        onChangeList: (type) => dispatch(changeList(type)),
+        onChangeLoginStatus: (status) => dispatch(changeLoginStatus(status)),
+        onLogOut: () => dispatch(logOut())
     }
 }
 
