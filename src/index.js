@@ -14,6 +14,9 @@ import moreInfoReducer from './store/reducers/MoreInfoReducer/moreInfoReducer';
 import searchReducer from './store/reducers/searchReducer';
 import ScrollToTop from './hoc/ScrollToTop';
 import discoverReducer from './store/reducers/DiscoverReducer/discoverReducer';
+import authReducer from './store/reducers/authReducer/authReducer';
+import ListsReducer from './store/reducers/ListsReducer/ListsReducer';
+
 
 // const logger = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -24,7 +27,9 @@ const rootReducer = combineReducers({
     typeSelector: typeSelectorReducer,
     moreInfo: moreInfoReducer,
     search: searchReducer,
-    discover: discoverReducer
+    discover: discoverReducer,
+    auth: authReducer,
+    lists: ListsReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleWare)));

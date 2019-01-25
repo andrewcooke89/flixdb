@@ -7,6 +7,7 @@ import { fetchMoreInfo, fetchSimilar, fetchReviews, fetchTrailer } from '../../s
 import classes from './MoreInfo.module.css';
 import Footer from '../../Components/Footer/Footer';
 import CarouselItem from '../../Components/Carousels/CarouselItem/CarouselItem';
+import { addOrRemoveFromList } from '../../store/actions/listItems';
 
 
 class MoreInfo extends Component {
@@ -26,6 +27,22 @@ class MoreInfo extends Component {
             this.fetchData()
         }
     }
+   
+
+    // add item to fav or watchlist
+    addToList = (listType) => {
+        
+        // checks media type
+        let mediaType;
+        if(this.props.match.params.type === "tv"){
+            mediaType = "tv"
+        } else {
+            mediaType = "movie"
+        }
+       
+        // sends post request via redux
+        this.props.onAddOrRemoveFromList(this.props.sessionId, this.props.accountDetails.id, listType, this.props.details.id, mediaType, true )
+    }
 
     // handle api requests using the id and type params from the previous link
     fetchData = (id = this.props.match.params.id, type = this.props.match.params.type) => {
@@ -33,7 +50,7 @@ class MoreInfo extends Component {
             this.props.onFetchMoreInfo(`https://api.themoviedb.org/3/movie/${id}?${apiKey}&language=en-US`)
             this.props.onFetchReviews(`https://api.themoviedb.org/3/movie/${id}/reviews?${apiKey}&language=en-US&page=1`)
             this.props.onFetchSimilar(`https://api.themoviedb.org/3/movie/${id}/similar?${apiKey}&language=en-US&page=1`)
-            // this.props.onFetchTrailer(`https://api.themoviedb.org/3/movie/${id}/videos?${apiKey}&language=en-US`)
+            
             
         } else if (type === "tv") {
             this.props.onFetchMoreInfo(`https://api.themoviedb.org/3/tv/${id}?${apiKey}&language=en-US`)
@@ -71,6 +88,7 @@ class MoreInfo extends Component {
     }
     
     render() {
+
 
          // Pag icons
          const backIcon = <svg  xmlns="http://www.w3.org/2000/svg" className={classes.moreInfo__similar_icon} viewBox="0 0 20 20">
@@ -166,9 +184,23 @@ class MoreInfo extends Component {
             })
         }
 
+        let addToListButtons;
+        this.props.loginStatus === "loggedOut" ? addToListButtons = null : addToListButtons = <div>
+            <button 
+                onClick={() => this.addToList("favorite")}
+                className={classes.moreInfo__summary_addTo}>
+                Add to Favorites
+            </button>
+            <button 
+                onClick={() => this.addToList("watchlist")}
+                className={classes.moreInfo__summary_addTo}>
+                Add to Watchlist
+            </button>
+        </div>
+
         return (
             <>
-                <NavBar />
+                <NavBar loginStatus={this.props.loginStatus} />
                 <div style={backdropStyle} className={classes.moreInfo__backdrop}></div>
 
                 <div className={classes.moreInfo__heading}>
@@ -181,6 +213,7 @@ class MoreInfo extends Component {
                 <main>
 
                     <div className={classes.moreInfo__summary_container}>
+                        {addToListButtons}
                         <h2 className={classes.moreInfo__summary_heading}>Plot Summary</h2>
                         <p className={classes.moreInfo__summary_text}>{this.props.details.overview}</p>
                         {reviewsHeading}
@@ -202,7 +235,7 @@ class MoreInfo extends Component {
                     </div>
 
                 </main>
-                <Footer />
+                <Footer loginStatus={this.props.loginStatus}  />
             </>
         );
     };
@@ -214,7 +247,10 @@ const mapStateToProps = state => {
         reviews: state.moreInfo.reviews,
         trailers: state.moreInfo.trailers,
         similar: state.moreInfo.similar,
-        details: state.moreInfo.details
+        details: state.moreInfo.details,
+        loginStatus: state.auth.loginStatus,
+        sessionId: state.auth.sessionId,
+        accountDetails: state.auth.accountDetails
     };
 };
 
@@ -223,7 +259,8 @@ const mapDispatchToProps = dispatch => {
         onFetchMoreInfo: (url) => dispatch(fetchMoreInfo(url)),
         onFetchSimilar: (url) => dispatch(fetchSimilar(url)),
         onFetchReviews: (url) => dispatch(fetchReviews(url)),
-        onFetchTrailer: (url) => dispatch(fetchTrailer(url))
+        onFetchTrailer: (url) => dispatch(fetchTrailer(url)),
+        onAddOrRemoveFromList: (sessionId, accountId, listType, id, mediaType, boolSelector) => dispatch(addOrRemoveFromList(sessionId, accountId, listType, id, mediaType, boolSelector))
     };
 };
 

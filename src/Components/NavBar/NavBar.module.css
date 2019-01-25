@@ -4,7 +4,7 @@
     background: #070514;  
 
     padding: .5rem;
-    border-image: linear-gradient(to right, #4387fd 0%,#40E0D0 25%, #40E0D0 71%, #4387fd 100%);
+    border-image: linear-gradient(to right, #fff 0%,#40E0D0 25%, #40E0D0 71%, #fff 100%);
 	border-image-slice: 1;
     border-bottom: .5rem solid ;
 
@@ -25,7 +25,11 @@
     border-radius: 50%;
     margin-left: 1rem;
     grid-column: 1;
+
+    
 }
+
+
 
 .NavBar__links {
     grid-column: 14 / -1;

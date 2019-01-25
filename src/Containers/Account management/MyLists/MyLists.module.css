@@ -1,0 +1,54 @@
+.myLists__list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+.myLists__noItem {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.myLists__listItem {
+    
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    height: 20rem;
+    margin-bottom: 3rem;
+}
+
+.myLists__listItem_removeContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.myLists__listItem_remove {
+    border: none;
+    background-color: #40E0D0;
+    border-radius: 5px;
+    padding: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.myLists__listItem_picture {
+    height: 20rem;
+    width: 15rem;
+    margin-right: 1rem;
+}
+
+.myLists__listItem_info {
+    display: flex;
+    flex-direction: column;
+    padding-top: .3rem;
+
+    
+}
+
+.myLists__listItem_info_text {
+    font-size: 1.6rem;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.5
+}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import classes from './Footer.module.css'
 import movieDbLogo from '../../assets/movieDBlogo.svg';
 
-const Footer = () => {
+const Footer = (props) => {
 
     const HomeIcon = <svg xmlns="http://www.w3.org/2000/svg" className={classes.footer__link_icon} viewBox="0 0 20 20">
     <title>home</title>
@@ -18,6 +18,23 @@ const Footer = () => {
     const DiscoverIcon = <svg xmlns="http://www.w3.org/2000/svg" className={classes.footer__link_icon} viewBox="0 0 20 20">
     <path d="M20 5v-1.201c0-0.442-0.357-0.799-0.799-0.799h-18.4c-0.443 0-0.801 0.357-0.801 0.799v1.201h2v2h-2v2h2v2h-2v2h2v2h-2v1.199c0 0.442 0.358 0.801 0.801 0.801h18.4c0.442 0 0.799-0.359 0.799-0.801v-1.199h-2v-2h2v-2h-2v-2h2v-2h-2v-2h2zM8 13v-6l5 3-5 3z"></path>
     </svg>
+
+    let accountLink;
+        if(props.loginStatus === "loggedIn") {
+            accountLink = 
+                <div className={classes.footer__link_item}>      
+                    <Link className={classes.footer__link} to="/account/myAccount/approved">
+                        {AccountIcon}    My Account
+                    </Link>
+                </div>
+        } else {
+            accountLink = 
+                <div className={classes.footer__link_item}>      
+                    <Link className={classes.footer__link} to="/account/signIn">
+                        {AccountIcon}    Sign In/Register
+                    </Link>
+                </div>
+}
 
     return (
         <footer className={classes.footer}>
@@ -40,11 +57,7 @@ const Footer = () => {
                     </Link>
                 </div> 
 
-                <div className={classes.footer__link_item}>      
-                    <Link className={classes.footer__link} to="#">
-                        {AccountIcon}    My Account
-                    </Link>
-                </div>
+                {accountLink}
             </div> 
 
             <div className={classes.footer__movieCredit}>

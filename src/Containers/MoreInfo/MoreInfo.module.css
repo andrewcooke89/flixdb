@@ -1,4 +1,5 @@
 .moreInfo__backdrop {
+    margin-top: 8rem;
     width: 100%;
     background-size: cover;
     height: 75rem;
@@ -19,7 +20,7 @@
     position: absolute;
     bottom: 0;
     left: 15rem;
-    padding-bottom: 3rem;
+    
 }
 
 .moreInfo__title {
@@ -42,6 +43,17 @@
     width: 80%;
     margin: 0 auto;
     margin-top: 5rem;
+}
+
+.moreInfo__summary_addTo {
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 3rem;
+    border: none;
+    background-color: #40E0D0;
+    border-radius: 5px;
+    font-family: inherit;
+    cursor: pointer;
 }
 
 .moreInfo__summary_heading {

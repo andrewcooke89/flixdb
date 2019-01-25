@@ -4,7 +4,7 @@ import classes from './NavBar.module.css';
 import logo from '../../assets/logo.jpg';
 import SearchBar from '../../Containers/SearchBar/SearchBar';
 
-const NavBar = () => {
+const NavBar = (props) => {
 
     const HomeIcon = <svg xmlns="http://www.w3.org/2000/svg" className={classes.NavBar__link_icon} viewBox="0 0 20 20">
     <title>home</title>
@@ -19,6 +19,26 @@ const NavBar = () => {
     const DiscoverIcon = <svg xmlns="http://www.w3.org/2000/svg" className={classes.NavBar__link_icon} viewBox="0 0 20 20">
     <path d="M20 5v-1.201c0-0.442-0.357-0.799-0.799-0.799h-18.4c-0.443 0-0.801 0.357-0.801 0.799v1.201h2v2h-2v2h2v2h-2v2h2v2h-2v1.199c0 0.442 0.358 0.801 0.801 0.801h18.4c0.442 0 0.799-0.359 0.799-0.801v-1.199h-2v-2h2v-2h-2v-2h2v-2h-2v-2h2zM8 13v-6l5 3-5 3z"></path>
     </svg>
+
+    let accountLink;
+    if(props.loginStatus === "loggedIn") {
+        accountLink = 
+            <NavLink className={classes.NavBar__link} exact to="/account/myAccount/approved">
+                <div className={classes.NavBar__link_group}>
+                    {AccountIcon}
+                    <span className={classes.NavBar__link_text}>My Account</span>
+                </div>
+                    
+            </NavLink>
+    } else {
+        accountLink = 
+            <NavLink className={classes.NavBar__link} exact to="/account/signIn">
+                <div className={classes.NavBar__link_group}>
+                    {AccountIcon}
+                    <span className={classes.NavBar__link_text}>Sign In</span>
+                </div>   
+            </NavLink>
+    }
     
 
 
@@ -44,13 +64,7 @@ const NavBar = () => {
                     </div>
                     
                 </NavLink>
-                <NavLink className={classes.NavBar__link} exact to="/">
-                    <div className={classes.NavBar__link_group}>
-                        {AccountIcon}
-                        <span className={classes.NavBar__link_text}>My Account</span>
-                    </div>
-                    
-                </NavLink>
+                {accountLink}
             </nav>
         </header>
     );
