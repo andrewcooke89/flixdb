@@ -7,6 +7,7 @@ import { fetchRequestToken } from '../../../store/actions/auth';
 
 class SignIn extends Component {
 
+    // fetches request token for sign in
     componentDidMount() {
         this.props.onFetchRequestToken();
     }
@@ -17,6 +18,7 @@ class SignIn extends Component {
                 <NavBar />
                     <main className={classes.signIn__content_container}>
                         <div className={classes.signIn__btn_choice_container}>
+                        {/* processes login with request token to the movie db */}
                             <a  className={classes.signIn__btn_container}
                                 href={`https://www.themoviedb.org/authenticate/${this.props.requestToken}?redirect_to=http://localhost:3000/account/myAccount/approved`} >
                                 <button 

@@ -3,10 +3,6 @@ import * as actionTypes from '../../actions/actionTypes';
 const initialState = {
     isPending: false,
     error: null,
-    favMoviesList: {results: []},
-    favTvList: {results: []},
-    watchListTv: {results: []},
-    watchListMovies: {results: []},
     listType: ""
 };
 
@@ -17,6 +13,22 @@ const ListsReducer = (state = initialState, action) => {
                 ...state,
                 listType: action.payload
             };
+        case actionTypes.ADD_OR_REMOVE_FROM_LIST_START:
+            return {
+                ...state,
+                isPending: true
+            };
+        case actionTypes.ADD_OR_REMOVE_FROM_LIST_SUCCESS:
+            return {
+                ...state,
+                isPending: false
+            };
+        case actionTypes.ADD_OR_REMOVE_FROM_LIST_FAIL:
+            return {
+                ...state,
+                isPending: false,
+                error: action.paylaod
+            }
         default: return state;
     }
 };

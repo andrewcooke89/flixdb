@@ -18,6 +18,20 @@
     margin-bottom: 3rem;
 }
 
+.myLists__listItem_removeContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.myLists__listItem_remove {
+    border: none;
+    background-color: #40E0D0;
+    border-radius: 5px;
+    padding: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+}
+
 .myLists__listItem_picture {
     height: 20rem;
     width: 15rem;

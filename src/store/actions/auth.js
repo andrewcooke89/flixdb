@@ -27,5 +27,13 @@ export const getSessionId = (token) => dispatch => {
 
 export const changeLoginStatus = (status) => ({type: actionTypes.CHANGE_LOGIN_STATUS, payload: status})
 
+export const fetchAccountDetails = (url) => dispatch => {
+    dispatch({type: actionTypes.FETCH_ACCOUNT_DETAILS_START})
+    fetch(url)
+    .then(res => res.json())
+    .then(data => dispatch({ type: actionTypes.FETCH_ACCOUNT_DETAILS_SUCCESS, payload: data}))
+    .catch(err => dispatch({type: actionTypes.FETCH_ACCOUNT_DETAILS_FAIL, payload: err}))
+}
+
 export const logOut = () => ({type: actionTypes.LOG_OUT});
 

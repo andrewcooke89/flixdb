@@ -17,9 +17,8 @@ class App extends Component {
     // auth routes
     let notLoggedIn;
     if(this.props.loginStatus === "loggedOut"){
-      notLoggedIn = <Redirect  from="/account/myAccount" to="/account/signIn" />
+      notLoggedIn = <Redirect  from="/account" to="/account/signIn" />
     } 
-
     return (
 
       <div className="container">
@@ -30,7 +29,6 @@ class App extends Component {
           <Route exact path="/account/signIn" component={SignIn} />
           <Route  path="/account/myAccount/:status" component={MyAccount} />
           <Route path="/" exact component={Home} />
-
           {notLoggedIn}
           
         </Switch>

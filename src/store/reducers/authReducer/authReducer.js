@@ -6,7 +6,8 @@ const initialState = {
     isPending: false,
     error: null,
     sessionId: {},
-    loginStatus: "loggedOut"
+    loginStatus: "loggedOut",
+    accountDetails: {}
 };
 
 const authReducer = (state = initialState, action) => {
@@ -56,6 +57,23 @@ const authReducer = (state = initialState, action) => {
                 loginStatus: "loggedOut",
                 sessionId: {}
             }
+        case actionTypes.FETCH_ACCOUNT_DETAILS_START:
+            return {
+                ...state,
+                isPending: true
+            };
+        case actionTypes.FETCH_ACCOUNT_DETAILS_SUCCESS:
+            return {
+                ...state,
+                isPending: false,
+                accountDetails: action.payload
+            };
+        case actionTypes.FETCH_ACCOUNT_DETAILS_FAIL:
+            return {
+                ...state,
+                isPending: false,
+                error: action.payload
+            };
         default: return state;
     } 
 };

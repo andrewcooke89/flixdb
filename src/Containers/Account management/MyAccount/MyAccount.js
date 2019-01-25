@@ -14,7 +14,7 @@ class MyAccount extends Component {
         list: null
     };
 
-    
+    // if logged out, fetches sessionId and logs in
     componentDidMount(){
         if(this.props.match.params.status === "approved" && this.props.loginStatus === "loggedOut") {
             this.props.onGetSessionId(this.parseToken(this.props.location.search));
@@ -23,8 +23,10 @@ class MyAccount extends Component {
         
     };
 
+    // parses into usable request token
     parseToken = token => token.split('?request_token=')[1].split('&')[0];
 
+    // handles changin between lists, tells redux what list is required and renders
     changeList = (type) => {
         let newState = {...this.state};
         newState.list = type;
@@ -37,7 +39,8 @@ class MyAccount extends Component {
     render() {
         
         let list;
-        if(this.props.loginStatus === "loggedIn"){
+       
+        // displays correct list heading on list selection
             if(this.state.list === null) {
                 list = 
                 <div>
@@ -46,19 +49,19 @@ class MyAccount extends Component {
                     </h1>
                     <p className={classes.myAccount__noListText}>Select a list from above.  These lists help you keep track of your entertainement.   </p>
                 </div>
-            } else if(this.state.list === "favouriteMovies"){
+            } else if(this.state.list === "favoriteMovies"){
                 list = 
                 <div>
                     <h1 className={classes.myAccount__heading}>
-                        Favourite Movies
+                        favorite Movies
                     </h1>
                     <MyLists />
                 </div>
-            } else if(this.state.list === "favouriteTv"){
+            } else if(this.state.list === "favoriteTv"){
                 list = 
                 <div>
                     <h1 className={classes.myAccount__heading}>
-                        Favourite TV Shows
+                        Favorite TV Shows
                     </h1>
                     <MyLists />
                 </div>
@@ -79,7 +82,7 @@ class MyAccount extends Component {
                     <MyLists />
                 </div>
             }
-        } 
+        
         
         
         
@@ -99,15 +102,15 @@ class MyAccount extends Component {
                         </div>
                         <div className={classes.myAccount__btn_container}>
                             <button 
-                                onClick={() => this.changeList("favouriteMovies")} 
+                                onClick={() => this.changeList("favoriteMovies")} 
                                 className={classes.myAccount_list_links}>
-                                Favourite Movies
+                                Favorite Movies
                             </button>
 
                             <button  
-                                onClick={() => this.changeList("favouriteTv")}
+                                onClick={() => this.changeList("favoriteTv")}
                                 className={classes.myAccount_list_links}>
-                                Favourite Shows
+                                Favorite Shows
                             </button>
 
                             <button 
