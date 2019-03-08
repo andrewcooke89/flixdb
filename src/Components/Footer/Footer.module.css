@@ -77,7 +77,6 @@
 }
 
 .footer__movieCredit_text {
-    /* grid-area:  */
     color: white;
     font-size: 1.6rem;
 }
@@ -88,4 +87,20 @@
     grid-area: 5 / 4 / 6/ 8;
     text-align: center;
     font-style: italic;
+}
+
+@media screen and (max-width: 800px){
+    
+    .footer__h2 {
+        display: none;
+    }
+
+    .footer__movieCredit {
+        grid-area: 2 / 7 / 4 / 10;
+    }
+
+    .footer__movieCredit_text {
+        margin-top: 3rem;
+    }
+
 }

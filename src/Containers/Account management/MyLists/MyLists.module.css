@@ -52,3 +52,21 @@
     margin-bottom: 1rem;
     line-height: 1.5
 }
+
+@media screen and (max-width: 1100px){
+    .myLists__listItem {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .myLists__listItem {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .myLists__listItem {
+        width: 80%;
+    }
+}

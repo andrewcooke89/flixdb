@@ -14,11 +14,7 @@ html {
 
 
 
-body {
-     /* background: #0f0c29;  
-    background: -webkit-linear-gradient(to right, #040523, #181947, #0f0c29); 
-    background: linear-gradient(to right, #040523, #181947, #0f0c29);  */
-    
+body {    
     background: rgb(44, 44, 44);
 }
 

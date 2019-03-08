@@ -78,11 +78,12 @@ class Discover extends Component {
                 <main >
                     <div className={classes.discover}>
                         <h1 className={classes.discover__heading}>DISCOVER NEW ENTERTAINMENT </h1>
-                        <form method="GET" /*onSubmit={this.onSubmit} */ className={classes.discover__form}>
-                            {/* media type */}
+                        <form method="GET"  className={classes.discover__form}>
+                           {/* media type */}
                             <select 
                                 onChange={e => this.setState({mediaType: e.target.value})}
-                                className={classes.discover__filter}                  ref="mediaType"
+                                className={classes.discover__filter}                  
+                                ref="mediaType"
                             >
                                 <option value="movie">Movie</option>
                                 <option value="tv">TV</option>
