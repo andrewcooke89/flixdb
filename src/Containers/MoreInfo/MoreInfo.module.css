@@ -12,15 +12,11 @@
     position: relative;
 }
 
-.moreInfo__backdrop:hover {
-    
-}
 
 .moreInfo__heading {
     position: absolute;
     bottom: 0;
     left: 15rem;
-    
 }
 
 .moreInfo__title {
@@ -137,3 +133,37 @@
     outline: none;
     border: none;
 }
+
+@media screen and (max-width: 1400px){
+    .moreInfo__backdrop {
+        height: 55rem;
+    }
+    .moreInfo__heading {
+        left: 12rem;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .moreInfo__backdrop {
+        height: 60rem;
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .moreInfo__heading {
+        left: 10rem;
+
+    }
+}
+@media screen and (max-width: 900px){
+    .moreInfo__heading {
+        bottom: 3rem;
+    }
+}
+@media screen and (max-width: 750px){
+    .moreInfo__heading {
+        left: 8rem;
+
+    }
+}
+
