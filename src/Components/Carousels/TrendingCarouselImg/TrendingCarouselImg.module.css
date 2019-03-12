@@ -37,3 +37,11 @@
         height: 25rem;
     }
 }
+
+@media screen and (max-width: 750px){
+    .TrendingCarouselImg__Container {
+        height: 25rem;
+        width: 33%;
+    }
+}
+

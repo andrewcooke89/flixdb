@@ -156,6 +156,17 @@ class MoreInfo extends Component {
                 curCarouselPage = [...this.props.similar].slice(8,16)
             }
 
+            // media query
+            if (document.documentElement.clientWidth < 700) {
+                if(this.props.similar.length > 0){
+                    if (this.state.page === 1){
+                        curCarouselPage = [...this.props.similar].slice(0, 5) 
+                    } else  {
+                        curCarouselPage = [...this.props.similar].slice(5,10)
+                    }
+                }
+            }
+
             carouselHeading = <h2 className={classes.moreInfo__summary_heading}>Others you might like</h2>
 
             pagBack = <div className={classes.moreInfo__similar_pagBack}>

@@ -79,3 +79,19 @@
     width: 3rem;
     fill: #40E0D0;
 }
+
+@media screen and (max-width: 800px){
+    
+    .NavBar__logo {
+        display: none;
+    }
+
+    .NavBar {
+        height: 8rem;
+        padding: 1rem;
+        padding-right: 4rem;
+    }
+
+
+
+}

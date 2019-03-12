@@ -14,6 +14,15 @@ const CarouselTemplate = (props) => {
         curPageList = [...props.itemList].slice(8,16);
     }
 
+    // media query
+    if (document.documentElement.clientWidth < 700) {
+        if (props.page === 1){
+            curPageList = [...props.itemList].slice(0,5);
+        } else if (props.page === 2) {
+            curPageList = [...props.itemList].slice(5,10);
+        }
+    }
+
     const listItems = curPageList.map(item => {
         return (
             <CarouselItem 

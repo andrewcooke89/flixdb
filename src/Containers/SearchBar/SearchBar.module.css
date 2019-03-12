@@ -21,6 +21,14 @@
     grid-column: 7 / 11;
 }
 
+@media screen and (max-width: 800px){
+    
+    .SearchBar__searchBox {
+        grid-column: 2 / 10
+    }
+
+}
+
 
 
 

@@ -104,3 +104,33 @@
     }
 
 }
+
+@media screen and (max-width: 600px){
+    
+    
+
+    .footer__movieCredit {
+        grid-area: 2 / 6 / 4 / 10;
+    }
+
+    .footer__movieCredit_text {
+        margin-top: 3rem;
+    }
+
+    .footer__copyright {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+    .footer__movieCredit {
+        grid-area: 2 / 5 / 4 / 9;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .footer__movieCredit {
+        width: 20rem;
+    }
+}
