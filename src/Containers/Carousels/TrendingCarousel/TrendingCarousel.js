@@ -30,30 +30,32 @@ class TrendingCarousel extends Component{
             currentTrendingTypeData = [...this.props.trendingTv];
         }
 
-        // selecting the current 5 film posters based on current page
-        let curTrendingPage;
-        if(this.state.curPage === 1){
-            curTrendingPage = [...currentTrendingTypeData].slice(0, 5)
-        } else if(this.state.curPage === 2) {
-            curTrendingPage = [...currentTrendingTypeData].slice(5, 10)
-        } else if(this.state.curPage === 3) {
-            curTrendingPage = [...currentTrendingTypeData].slice(10, 15)
-        } else if(this.state.curPage === 4) {
-            curTrendingPage = [...currentTrendingTypeData].slice(15, 20)
-        } 
 
-        // media query
-        if (document.documentElement.clientWidth < 600) {
-            if(this.state.curPage === 1){
-                curTrendingPage = [...currentTrendingTypeData].slice(0, 3)
-            } else if(this.state.curPage === 2) {
-                curTrendingPage = [...currentTrendingTypeData].slice(3, 6)
-            } else if(this.state.curPage === 3) {
-                curTrendingPage = [...currentTrendingTypeData].slice(6, 9)
-            } else if(this.state.curPage === 4) {
-                curTrendingPage = [...currentTrendingTypeData].slice(9, 12)
-            } 
+
+        // size of carousel depending on screen size
+        let curTrendingPage;
+        const mediaQuery = (items) => {
+                if(this.state.curPage === 1){
+                    curTrendingPage = [...currentTrendingTypeData].slice(0, items)
+                } else if(this.state.curPage === 2) {
+                    curTrendingPage = [...currentTrendingTypeData].slice(items, items*2)
+                } else if(this.state.curPage === 3) {
+                    curTrendingPage = [...currentTrendingTypeData].slice(items*2, items*3)
+                } else if(this.state.curPage === 4) {
+                    curTrendingPage = [...currentTrendingTypeData].slice(items*3, items*4)
+                }
+        }       
+
+        // selecting the current 5 film posters based on current page
+        
+        if (document.documentElement.clientWidth > 600) {
+            mediaQuery(5)
+        } else if((document.documentElement.clientWidth > 400) && (document.documentElement.clientWidth < 600)) {
+            mediaQuery(3);
+        } else if (document.documentElement.clientWidth <= 400) {
+            mediaQuery(2)
         }
+
 
         // iterating over the trendingmovies array to render carousel
         const curTrendingCarouselItems = curTrendingPage.map(card => {

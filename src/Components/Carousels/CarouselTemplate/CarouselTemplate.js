@@ -6,21 +6,23 @@ import PagBack from '../PaginationButtons/PagBack/PagBack';
 import PagForward from '../PaginationButtons/PagForward/PagForward';
 
 const CarouselTemplate = (props) => {
-    // selects items based on cur page
-    let curPageList;
-    if (props.page === 1){
-        curPageList = [...props.itemList].slice(0,8);
-    } else if (props.page === 2) {
-        curPageList = [...props.itemList].slice(8,16);
-    }
 
-    // media query
-    if (document.documentElement.clientWidth < 700) {
+    // media query - items per carousel based on screen size
+    let curPageList;
+    const mediaQuery = (items) => {
         if (props.page === 1){
-            curPageList = [...props.itemList].slice(0,5);
+            curPageList = [...props.itemList].slice(0,items);
         } else if (props.page === 2) {
-            curPageList = [...props.itemList].slice(5,10);
+            curPageList = [...props.itemList].slice(items, items*2);
         }
+    }   
+
+    if (document.documentElement.clientWidth > 900) {
+        mediaQuery(10);
+    } else if ((document.documentElement.clientWidth < 900) && (document.documentElement.clientWidth > 500)) {
+        mediaQuery(5);
+    } else if (document.documentElement.clientWidth < 500) {
+        mediaQuery(3);
     }
 
     const listItems = curPageList.map(item => {

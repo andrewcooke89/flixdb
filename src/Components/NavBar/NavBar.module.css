@@ -7,6 +7,7 @@
     border-image: linear-gradient(to right, #fff 0%,#40E0D0 25%, #40E0D0 71%, #fff 100%);
 	border-image-slice: 1;
     border-bottom: .5rem solid ;
+    height: 8rem;
 
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -19,14 +20,10 @@
     z-index: 100;
 }
 
-.NavBar__logo {
-    height: 7rem;
-    width: 7rem;
-    border-radius: 50%;
-    margin-left: 1rem;
-    grid-column: 1;
-
-    
+.NavBar__brand {
+    color: #40E0D0;
+    font-size: 3rem;
+    margin-left: 1.6rem
 }
 
 
@@ -80,9 +77,9 @@
     fill: #40E0D0;
 }
 
-@media screen and (max-width: 800px){
-    
-    .NavBar__logo {
+@media screen and (max-width: 600px){
+        
+    .NavBar__brand {
         display: none;
     }
 
