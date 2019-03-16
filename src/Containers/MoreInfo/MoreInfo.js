@@ -149,11 +149,27 @@ class MoreInfo extends Component {
         let carouselHeading = null
         let pagBack = null;
         let pagForward = null;
+
+        // media query
+        const mediaQuery = (items) => {
+            if (this.state.page === 1){
+                curCarouselPage = [...this.props.similar].slice(0, items) 
+            } else  {
+                curCarouselPage = [...this.props.similar].slice(items,items*2)
+            }
+        }
+
         if(this.props.similar.length > 0){
             if (this.state.page === 1){
                 curCarouselPage = [...this.props.similar].slice(0, 8) 
             } else  {
                 curCarouselPage = [...this.props.similar].slice(8,16)
+            }
+            if ((document.documentElement.clientWidth < 700) &&             (document.documentElement.clientWidth > 500)) {
+                mediaQuery(5);
+                
+            } else if (document.documentElement.clientWidth < 500){
+                mediaQuery(3);
             }
 
             carouselHeading = <h2 className={classes.moreInfo__summary_heading}>Others you might like</h2>

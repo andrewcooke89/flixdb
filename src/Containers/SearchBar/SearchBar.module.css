@@ -5,6 +5,8 @@
     width: 100%;
     height: 100%;
     transition: all .1s;
+    text-align: center;
+    font-size: 1.6rem;
     
 }
 
@@ -19,6 +21,22 @@
     
     height: 4rem;
     grid-column: 7 / 11;
+}
+
+@media screen and (max-width: 800px){
+    
+    .SearchBar__searchBox {
+        grid-column: 4 / 13
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    
+    .SearchBar__searchBox {
+        grid-column: 2 / 12
+    }
+
 }
 
 

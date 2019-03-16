@@ -53,3 +53,16 @@
         width: 50%;
     }
 }
+
+@media screen and (max-width: 700px){
+    .signIn__btn_choice_container {
+        width: 60%;
+        margin-bottom: 25rem;
+    }
+
+    .signIn__text {
+        color: #fff;
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+}

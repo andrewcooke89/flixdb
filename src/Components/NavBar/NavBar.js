@@ -46,7 +46,7 @@ const NavBar = (props) => {
     return (
         <header className={classes.NavBar}>
             <div >
-                <img className={classes.NavBar__logo} src={logo} alt="Logo"/>
+                <h1 className={classes.NavBar__brand}>FlixDb</h1>
             </div>
             <SearchBar />
             <nav className={classes.NavBar__links}>

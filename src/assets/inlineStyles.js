@@ -15,16 +15,16 @@ const styles = {
     },
     headingPlacement: {
         InTheatresHeadingStyle: {
-            gridArea: "trendingCarousel-end / 2 / theatres-start / 5"
+            gridArea: "trendingCarousel-end / 2 / theatres-start / -1"
           },
           highestRatedHeadingStyle: {
-            gridArea: "theatres-end / 2 / highestRated-start / 5"
+            gridArea: "theatres-end / 2 / highestRated-start / -1"
           },
           upcommingHeadingStyle: {
-              gridArea: "highestRated-end / 2 / upcomming-start / 5"
+              gridArea: "highestRated-end / 2 / upcomming-start / -1"
           },
           popularHeadingStyle: {
-              gridArea: "upcomming-end / 2 / popular-start / 5"
+              gridArea: "upcomming-end / 2 / popular-start / -1"
           }
     },
     paginationPlacement: {

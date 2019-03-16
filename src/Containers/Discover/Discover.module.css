@@ -11,13 +11,18 @@
     font-size: 3rem;
     color: #40E0D0;
     margin-bottom: 5rem;
-
+}
+@media screen and (max-width: 600px){
+    .discover__heading {
+        font-size: 2.4rem;
+    }
 }
 
 .discover__form {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .discover__filter {
@@ -74,7 +79,5 @@
     
 }
 
-@media screen and (max-width: 1400px){
-    
-}
+
 

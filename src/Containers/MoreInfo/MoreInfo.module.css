@@ -135,19 +135,20 @@
 }
 
 @media screen and (max-width: 1400px){
-    .moreInfo__backdrop {
-        height: 55rem;
-    }
+    
     .moreInfo__heading {
         left: 12rem;
     }
 }
 
 @media screen and (max-width: 1200px){
-    .moreInfo__backdrop {
-        height: 60rem;
+    .moreInfo__heading {
+        left: 12rem;
+        bottom: 2rem;
     }
 }
+
+
 
 @media screen and (max-width: 1050px){
     .moreInfo__heading {
@@ -155,15 +156,33 @@
 
     }
 }
+
+
 @media screen and (max-width: 900px){
     .moreInfo__heading {
-        bottom: 3rem;
+        bottom: 7rem;
     }
 }
+
 @media screen and (max-width: 750px){
     .moreInfo__heading {
         left: 8rem;
+    }
 
+    .moreInfo__title {
+        font-size: 4rem;
+    }
+}  
+
+@media screen and (max-width: 600px) {
+    .moreInfo__heading {
+        left: 6rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .moreInfo__heading {
+        left: 5rem;
     }
 }
 
