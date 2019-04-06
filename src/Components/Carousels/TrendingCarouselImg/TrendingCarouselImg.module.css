@@ -20,6 +20,12 @@
     border: 2px solid #40E0D0;
 }
 
+@media screen and (min-width: 2000px){
+    .TrendingCarouselImg__Container {
+        height: 55rem;
+    }
+}
+
 @media screen and (max-width: 1100px){
     .TrendingCarouselImg__Container {
         height: 35rem;

@@ -14,9 +14,10 @@
 
 
 .moreInfo__heading {
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
-    left: 15rem;
+    left: 15rem; */
+    margin-bottom: 3rem;
 }
 
 .moreInfo__title {
@@ -134,55 +135,9 @@
     border: none;
 }
 
-@media screen and (max-width: 1400px){
-    
-    .moreInfo__heading {
-        left: 12rem;
-    }
-}
-
-@media screen and (max-width: 1200px){
-    .moreInfo__heading {
-        left: 12rem;
-        bottom: 2rem;
-    }
-}
-
-
-
-@media screen and (max-width: 1050px){
-    .moreInfo__heading {
-        left: 10rem;
-
-    }
-}
-
-
-@media screen and (max-width: 900px){
-    .moreInfo__heading {
-        bottom: 7rem;
-    }
-}
-
-@media screen and (max-width: 750px){
-    .moreInfo__heading {
-        left: 8rem;
-    }
-
-    .moreInfo__title {
-        font-size: 4rem;
-    }
-}  
-
-@media screen and (max-width: 600px) {
-    .moreInfo__heading {
-        left: 6rem;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .moreInfo__heading {
-        left: 5rem;
+@media screen and (max-width: 600px){
+    .moreInfo__backdrop {
+        height: 40rem;
     }
 }
 
