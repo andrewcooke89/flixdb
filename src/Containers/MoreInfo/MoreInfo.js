@@ -219,16 +219,19 @@ class MoreInfo extends Component {
                 <NavBar loginStatus={this.props.loginStatus} />
                 <div style={backdropStyle} className={classes.moreInfo__backdrop}></div>
 
-                <div className={classes.moreInfo__heading}>
-                    <h1 className={classes.moreInfo__title}>{heading}</h1>  
-                    <p className={classes.moreInfo__rating}>
-                        {this.props.details.vote_average}
-                        {star}
-                    </p>
-                </div>
+                
                 <main>
 
                     <div className={classes.moreInfo__summary_container}>
+
+                        <div className={classes.moreInfo__heading}>
+                            <h1 className={classes.moreInfo__title}>{heading}</h1>  
+                            <p className={classes.moreInfo__rating}>
+                                {this.props.details.vote_average}
+                                {star}
+                            </p>
+                        </div>
+                        
                         {addToListButtons}
                         <h2 className={classes.moreInfo__summary_heading}>Plot Summary</h2>
                         <p className={classes.moreInfo__summary_text}>{this.props.details.overview}</p>
