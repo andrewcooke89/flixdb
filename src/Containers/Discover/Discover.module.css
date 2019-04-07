@@ -62,6 +62,13 @@
     justify-content: center;
 }
 
+@media screen and (min-width: 200px){
+    .discover__resultsContainer_list {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
 .discover__resultsContainer_btnContainer {
     width: 100%;
     display: flex;
