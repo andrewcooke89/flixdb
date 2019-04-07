@@ -60,4 +60,9 @@
     text-decoration: none;
     font-size: 1.5rem;
 }
+@media screen and (max-width: 600px){
+    .myAccount__logOut {
+        margin-right: 1rem;
+    }
+}
 

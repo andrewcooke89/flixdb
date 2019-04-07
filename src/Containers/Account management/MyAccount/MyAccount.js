@@ -89,7 +89,7 @@ class MyAccount extends Component {
         return (
             <div>
                 <NavBar loginStatus={this.props.loginStatus} />
-                    <main style={{marginTop: "10rem"}}>
+                    <main style={{marginTop: "10rem", height: "70vh"}}>
                         <div className={classes.myAccount__logOut_container}>
                             <Link 
                                 to="/"  

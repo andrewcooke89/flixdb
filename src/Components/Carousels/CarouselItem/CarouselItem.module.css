@@ -23,7 +23,7 @@
 
 @media screen and (min-width: 2000px){
     .CarouselItem__Container {
-        height: 30rem;
+        height: 35rem;
         width: 20%;
     }
 }
