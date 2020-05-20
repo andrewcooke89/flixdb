@@ -58,15 +58,18 @@ class Discover extends Component {
         let discoverItemList;
         if(this.props.discover.length > 0) {
             discoverItemList = this.props.discover.map(result=> {
-                return (
-                    <CarouselItem
-                        margin={{marginRight: "1.3rem", marginBottom: "3rem"}}
-                        item={`http://image.tmdb.org/t/p/w300${result.poster_path}`}
-                        key={result.id}
-                        id={result.id}
-                        type={this.state.mediaType}
-                    />
-                )
+                if (result.poster_path) {
+                    return (
+                        <CarouselItem
+                            margin={{marginRight: "1.3rem", marginBottom: "3rem"}}
+                            item={`http://image.tmdb.org/t/p/w300${result.poster_path}`}
+                            key={result.id}
+                            id={result.id}
+                            type={this.state.mediaType}
+                        />
+                    )
+                }
+                
             })
         }
 

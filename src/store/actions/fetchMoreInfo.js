@@ -29,8 +29,9 @@ export const fetchReviews = (url) => (dispatch) => {
     dispatch({ type: actionTypes.FETCH_GETREVIEWS_START });
     fetch(`${url}`)
         .then(response => response.json())
-        .then(data => 
-            dispatch({ type: actionTypes.FETCH_GETREVIEWS_SUCCESS, payload: data.results })
+        .then(data => {
+            return dispatch({ type: actionTypes.FETCH_GETREVIEWS_SUCCESS, payload: data.results })
+        }
         )
         .catch(err => 
             dispatch({ type: actionTypes.FETCH_GETREVIEWS_FAIL , payload: err})

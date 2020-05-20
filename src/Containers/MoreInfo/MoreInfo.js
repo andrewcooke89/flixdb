@@ -63,7 +63,7 @@ class MoreInfo extends Component {
     // checks if review is longer than character limit and shortens it without cutting words
     limitReview = (review, limit = 200) => {
         const shortReview = [];
-        if(review.length > limit){
+        if(review.length && review.length > limit){
             review.split(' ').reduce((acc, cur) => {
                 if (acc + cur.length <= limit) {
                     shortReview.push(cur);
@@ -129,7 +129,7 @@ class MoreInfo extends Component {
         // checks if there are reviews and then loops and displays them
         let reviews;
         let reviewsHeading;
-        if(this.props.reviews.length > 0) {
+        if(this.props.reviews && this.props.reviews.length > 0) {
             reviewsHeading = <h2 className={classes.moreInfo__summary_heading}>Reviews</h2>
             reviews = this.props.reviews.map(review => {
                 return (
@@ -159,7 +159,7 @@ class MoreInfo extends Component {
             }
         }
 
-        if(this.props.similar.length > 0){
+        if(this.props.similar && this.props.similar.length > 0){
             if (this.state.page === 1){
                 curCarouselPage = [...this.props.similar].slice(0, 8) 
             } else  {
