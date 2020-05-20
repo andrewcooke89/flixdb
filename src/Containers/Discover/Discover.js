@@ -57,7 +57,7 @@ class Discover extends Component {
 
         let discoverItemList;
         if(this.props.discover.length > 0) {
-            discoverItemList = this.props.discover.map(result=> {
+            discoverItemList = this.props.discover.map(result => {
                 if (result.poster_path) {
                     return (
                         <CarouselItem

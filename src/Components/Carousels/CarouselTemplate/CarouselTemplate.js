@@ -26,14 +26,16 @@ const CarouselTemplate = (props) => {
     }
 
     const listItems = curPageList.map(item => {
-        return (
-            <CarouselItem 
-            item={`http://image.tmdb.org/t/p/w300${item.poster_path}`} 
-            key={item.id}
-            id={item.id}
-            type={props.type}
-            />
+        if (item.poster_path) {
+            return (
+                <CarouselItem 
+                item={`http://image.tmdb.org/t/p/w300${item.poster_path}`} 
+                key={item.id}
+                id={item.id}
+                type={props.type}
+                />
         )
+        }
         
     })
     return (
