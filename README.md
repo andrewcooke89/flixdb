@@ -1,3 +1,4 @@
+
 #FlixDB
 
 FlixDB is an application that allows users to search movies and TV-shows. Each movie/show has details, ratings and reviews as well as recommendations for similar shows/movies.
@@ -28,3 +29,4 @@ $ npm start
 ##Images
 
 ![Home Page](./readMeImages/homepage.png)
+
