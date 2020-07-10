@@ -26,7 +26,7 @@ $ npm start
 ```
 
 
-##Images
+## Home Page
 
 ![Home Page](./readMeImages/homepage.png)
 
