@@ -1,5 +1,5 @@
 
-#FlixDB
+# FlixDB
 
 FlixDB is an application that allows users to search movies and TV-shows. Each movie/show has details, ratings and reviews as well as recommendations for similar shows/movies.
 
@@ -9,14 +9,14 @@ Users can make and store lists of favourited movies/shows in their account to co
 
 FlixDB was created using the Movie-DB api.
 
-##Technologies
+## Technologies
 
 This project is created with:
 
-*React
-*Redux
+* React
+* Redux
 
-##Launch
+## Launch
 
 To launch the application, simply run npm install followed by npm start.  The application will launch on localhost:3000
 
